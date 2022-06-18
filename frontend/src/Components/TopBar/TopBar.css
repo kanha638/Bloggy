@@ -1,12 +1,14 @@
 .TopBar {
   width: 100%;
   height: 60px;
-
   position: sticky;
   top: 0;
+  background-color: white;
+
   display: flex;
   align-items: center;
   font-family: "Josefin Sans", sans-serif;
+  z-index: 999;
 }
 .Left {
   flex: 3;
