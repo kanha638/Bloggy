@@ -36,7 +36,9 @@
   font-weight: 700;
   cursor: pointer;
 }
-
+.ListItem:hover {
+  color: red;
+}
 .Right {
   flex: 3;
   display: flex;
@@ -51,6 +53,7 @@
   height: 20px;
   width: 200px;
   border-radius: 0px;
+  margin-left: 20px;
 }
 .searchIcon {
   margin-left: -8px;

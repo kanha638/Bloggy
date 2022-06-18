@@ -1,6 +1,7 @@
 .Head {
   margin: 0px;
   width: 100%;
+  min-width: 830px;
   margin-top: 20px;
   display: flex;
 }
@@ -10,5 +11,5 @@
   height: 450px;
   margin-right: 0px;
   object-fit: cover;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
