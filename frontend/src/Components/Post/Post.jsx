@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Post.css"
-import postimage from "../../Images/fitness.webp";
+import postimage from "../../Images/fitness1.jpeg";
 export const Post = () => {
   return (
       <div className="post">

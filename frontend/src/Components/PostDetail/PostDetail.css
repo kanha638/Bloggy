@@ -1,0 +1,54 @@
+.PostDetail {
+  flex: 9;
+}
+.postWrapper {
+  padding: 20px;
+  padding-right: 0px;
+}
+.postimg {
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+}
+.Posttitle {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.editPost {
+  float: right;
+  font-size: 18px;
+}
+.EditPostIcon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.EditPostIcon:first-child {
+  color: cadetblue;
+}
+.EditPostIcon:last-child {
+  color: darkorange;
+}
+.Postinfo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.author {
+  color: coral;
+}
+.date {
+  color: cornflowerblue;
+  font-size: 14px;
+}
+.postcontent {
+  margin-top: 10px;
+  font-size: 19px;
+  line-height: 30px;
+}
+.postcontent::first-letter {
+  margin-left: 20px;
+  font-size: 30px;
+  font-weight: 600;
+}

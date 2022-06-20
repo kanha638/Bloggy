@@ -1,7 +1,7 @@
 .post {
   width: 420px;
   margin: 0px 25px 40px 25px;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   border-radius: 5px;
 }
 .postimage {
