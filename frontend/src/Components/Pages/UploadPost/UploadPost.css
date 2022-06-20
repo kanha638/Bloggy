@@ -42,6 +42,12 @@
   width: 100%;
   margin: 10px;
   padding: 20px;
+  align-items: center;
+}
+.portion1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 .fileinput {
   display: none;
@@ -54,6 +60,7 @@
   margin-left: 20px;
   border: none;
   font-size: 30px;
+  width: 90%;
 }
 
 .titleinput:focus {
@@ -66,10 +73,19 @@
   /* margin-left: 20px; */
   min-height: 300px;
   /* min-width: 300px; */
-  width: 90%;
+  width: 100%;
   min-width: 200px;
   line-height: 25px;
 }
 .textinput:focus {
   outline: none;
+}
+.SubmitForm {
+  width: 100px;
+  border: none;
+  margin: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
 }
