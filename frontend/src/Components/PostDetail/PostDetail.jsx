@@ -16,6 +16,10 @@ export const PostDetail = () => {
         </h1>
         <div className="Postinfo">
           <span className="author">Author : <b>Kanha Tiwari</b></span>
+          <span className="Postcategories">
+            <span className="PostCategory">Sports</span>
+            <span className="PostCategory">Health</span>
+          </span>
           <span className="date">1 Hour Ago </span>
         </div>
         <hr></hr>

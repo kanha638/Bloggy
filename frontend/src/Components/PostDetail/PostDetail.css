@@ -1,7 +1,9 @@
 .PostDetail {
   flex: 9;
+  padding-top: 10px;
 }
 .postWrapper {
+  margin-left: 10px;
   padding: 20px;
   padding-right: 0px;
 }
@@ -20,7 +22,8 @@
   font-size: 18px;
 }
 .EditPostIcon {
-  margin-left: 10px;
+  margin-right: 10px;
+
   cursor: pointer;
 }
 .EditPostIcon:first-child {
@@ -30,10 +33,31 @@
   color: darkorange;
 }
 .Postinfo {
+  font-family: "Josefin Sans", sans-serif;
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
+}
+.Postcategories {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.PostCategory {
+  font-family: "Josefin Sans", sans-serif;
+  line-height: 20px;
+  font-size: 8px;
+  font-weight: 600;
+  margin-right: 10px;
+  color: coral;
+  cursor: pointer;
+  border: solid 1px black;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: rgb(0, 0, 0);
 }
 .author {
   color: coral;
