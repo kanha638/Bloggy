@@ -1,12 +1,14 @@
 import { HomePage } from "./Components/Pages/HomePage/HomePage";
 import { PostView } from "./Components/Pages/PostView/PostView";
+import { UploadPost } from "./Components/Pages/UploadPost/UploadPost";
 import TopBar from "./Components/TopBar/TopBar";
 
 function App() {
   return (
     <>
       <TopBar />
-      <PostView />
+      <UploadPost />
+      {/* <PostView /> */}
       {/* <HomePage /> */}
     </>
   );

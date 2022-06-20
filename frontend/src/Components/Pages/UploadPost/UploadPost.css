@@ -1,0 +1,75 @@
+.pagetitle {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  color: blue;
+  /* border-bottom: solid 2px black; */
+}
+.UploadPost {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  width: 100%;
+  justify-content: start;
+}
+@media screen and (min-width: 900px) {
+  .UploadPost {
+    flex-direction: row;
+  }
+  .blogimgcontainer {
+    flex: 1;
+  }
+  .uploadform {
+    flex: 1;
+  }
+}
+.blogimgcontainer {
+  flex: 1;
+  padding: 10px;
+}
+.blogimg {
+  width: 100%;
+  /* max-width: 700px; */
+  border-radius: 10px;
+  height: 100%;
+}
+.uploadform {
+  flex: 1;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px;
+  padding: 20px;
+}
+.fileinput {
+  display: none;
+}
+.fileinputIcon {
+  font-size: 30px;
+  color: grey;
+}
+.titleinput {
+  margin-left: 20px;
+  border: none;
+  font-size: 30px;
+}
+
+.titleinput:focus {
+  outline: none;
+}
+.textinput {
+  background-color: antiquewhite;
+  border: none;
+  margin-top: 30px;
+  /* margin-left: 20px; */
+  min-height: 300px;
+  /* min-width: 300px; */
+  width: 90%;
+  min-width: 200px;
+  line-height: 25px;
+}
+.textinput:focus {
+  outline: none;
+}
