@@ -8,6 +8,8 @@
   flex: 9;
   padding: 30px;
   margin: 20px;
+  margin-top: 0px;
+  text-align: center;
 }
 @media screen and (min-width: 900px) {
   .setting {
@@ -56,8 +58,11 @@
   border: none;
   font-weight: 500;
   font-size: 15px;
-  border-top: 2px solid grey;
-  border-left: 2px solid grey;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+}
+.changename:focus {
+  outline: none;
 }
 .changeemail {
   margin-top: 10px;
@@ -66,6 +71,9 @@
   border: none;
   border-top: 2px solid black;
   border-left: 2px solid black;
+}
+.changeemain:focus {
+  outline: none;
 }
 .desc {
   width: 100%;
@@ -110,4 +118,14 @@
 }
 .currentpassword:focus {
   outline: none;
+}
+.settingsubmit {
+  margin-top: 25px;
+  padding: 10px;
+  font-size: medium;
+  border: none;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }

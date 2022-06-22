@@ -5,7 +5,8 @@ import { SideBar } from "../../SideBar/SideBar";
 export const UserSettting = () => {
   return (
     <div className="setting">
-      <div className="settingcontainer">
+      <form className="settingcontainer">
+        <h1 style={{ "margin-bottom": "20px" }}>User Setting</h1>
         <div className="settingWrapper">
           <img src={myimage} alt="" className="settingimg" />
           <label htmlFor="changeimg">
@@ -53,7 +54,10 @@ export const UserSettting = () => {
             </label>
           </div>
         </div>
-      </div>
+        <button type="submit" className="settingsubmit">
+          Save Changes
+        </button>
+      </form>
       <SideBar />
     </div>
   );
