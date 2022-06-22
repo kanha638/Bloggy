@@ -2,7 +2,7 @@ import "./UserSetting.css";
 import myimage from "../../../Images/User.jpeg";
 import { SideBar } from "../../SideBar/SideBar";
 
-export const UserSettting = () => {
+export const UserSetting = () => {
   return (
     <div className="setting">
       <form className="settingcontainer">

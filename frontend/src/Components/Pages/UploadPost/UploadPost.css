@@ -11,7 +11,7 @@
   flex-direction: column;
   /* flex-wrap: wrap; */
   width: 100%;
-  justify-content: start;
+  justify-content: flex-start;
 }
 @media screen and (min-width: 900px) {
   .UploadPost {
