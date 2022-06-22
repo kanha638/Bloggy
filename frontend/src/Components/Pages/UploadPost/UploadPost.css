@@ -55,6 +55,7 @@
 .fileinputIcon {
   font-size: 30px;
   color: grey;
+  cursor: pointer;
 }
 .titleinput {
   margin-left: 20px;

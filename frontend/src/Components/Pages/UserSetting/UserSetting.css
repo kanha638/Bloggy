@@ -1,0 +1,113 @@
+.setting {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: "Josefin Sans", sans-serif;
+}
+.settingcontainer {
+  flex: 9;
+  padding: 30px;
+  margin: 20px;
+}
+@media screen and (min-width: 900px) {
+  .setting {
+    flex-direction: row;
+  }
+}
+.settingWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.settingimg {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin-bottom: -25px;
+}
+.changeimgicon {
+  font-size: 30px;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: 100px;
+}
+.changeimg {
+  display: none;
+}
+.inputcontainer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 2;
+  width: 90%;
+}
+.basicinfo {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.changename {
+  margin-top: 10px;
+  width: 300px;
+  height: 30px;
+  border: none;
+  font-weight: 500;
+  font-size: 15px;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
+}
+.changeemail {
+  margin-top: 10px;
+  width: 300px;
+  height: 30px;
+  border: none;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+}
+.desc {
+  width: 100%;
+  margin-top: 20px;
+}
+.textareainput {
+  display: flex;
+  align-self: center;
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+}
+.textareainput:focus {
+  outline: none;
+}
+.passwordarea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.changepassword {
+  margin-top: 10px;
+  width: 300px;
+  height: 30px;
+  border: none;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+}
+.changepassword:focus {
+  outline: none;
+}
+.currentpassword {
+  margin-top: 10px;
+  width: 300px;
+  border: none;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  height: 30px;
+}
+.currentpassword:focus {
+  outline: none;
+}
