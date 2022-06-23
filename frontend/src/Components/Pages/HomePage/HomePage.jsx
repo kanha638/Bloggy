@@ -7,10 +7,12 @@ import "./HomePage.css";
 export const HomePage = () => {
   return (
     <>
-      <ImageHead />
-      <div className="content">
-        <Blogs />
-        <SideBar />
+      <div className="homepage">
+        <ImageHead />
+        <div className="content">
+          <Blogs />
+          <SideBar />
+        </div>
       </div>
     </>
   );

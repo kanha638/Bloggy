@@ -61,12 +61,6 @@ function TopBar() {
         </div>
       </div>
       <div className="TopBarSmall">
-        <div className="Left1">
-          <i class="leftIcon fa-brands fa-facebook-square"></i>
-          <i class="leftIcon fa-brands fa-instagram-square"></i>
-          <i class="leftIcon fa-brands fa-linkedin"></i>
-          <i class="leftIcon fa-brands fa-twitter-square"></i>
-        </div>
         <div className="search">
           <input
             type="text"
@@ -102,9 +96,16 @@ function TopBar() {
             <Link className="link" to="/settings">
               <div className="dropdownimg">
                 <img src={Profile} alt="img" className=" userimage" />
-                <div className="dropdownitem">PROFILE</div>
+                <div className="dropdownitemp">PROFILE</div>
               </div>
             </Link>
+            <hr></hr>
+            <div className="Left1">
+              <i class="leftIcon fa-brands fa-facebook-square"></i>
+              <i class="leftIcon fa-brands fa-instagram-square"></i>
+              <i class="leftIcon fa-brands fa-linkedin"></i>
+              <i class="leftIcon fa-brands fa-twitter-square"></i>
+            </div>
             <hr></hr>
             <Link className="link" to="/login">
               <div className="dropdownitem">LOGOUT</div>

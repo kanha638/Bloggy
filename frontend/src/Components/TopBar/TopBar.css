@@ -24,14 +24,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   font-family: "Josefin Sans", sans-serif;
 }
-.left1 {
-  flex: 3;
+.Left1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  margin: 10px;
 }
 .TopBarSmall > .search {
   flex: 6;
@@ -40,7 +40,7 @@
   justify-content: center;
 }
 .dropdown {
-  flex: 3;
+  flex: 6;
   display: flex;
   justify-content: flex-end;
   padding: 20px;
@@ -99,6 +99,17 @@
 }
 .dropdownitem {
   height: 50px;
+  margin-top: 10px;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 10px;
+}
+.dropdownitemp {
+  height: 50px;
   font-weight: 700;
   width: 100%;
   margin-left: 20px;
@@ -108,6 +119,12 @@
   border-radius: 5px;
   margin-right: 10px;
 }
+.dropdownitemp:hover {
+  color: red;
+  background-color: black;
+  cursor: pointer;
+}
+
 .dropdownitem:hover {
   color: red;
   background-color: black;
