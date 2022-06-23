@@ -97,7 +97,28 @@
   background-color: black;
   cursor: pointer;
 }
-
+.dropdownitem {
+  height: 50px;
+  font-weight: 700;
+  width: 100%;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.dropdownitem:hover {
+  color: red;
+  background-color: black;
+  cursor: pointer;
+}
+.dropdownimg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+}
 .Left {
   flex: 3;
   display: flex;
@@ -128,6 +149,7 @@
 }
 .ListItem:hover {
   color: red;
+  border-bottom: solid 2px black;
 }
 .Right {
   flex: 3;

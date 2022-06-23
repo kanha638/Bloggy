@@ -3,6 +3,8 @@ import myimage from "../../../Images/User.jpeg";
 import { SideBar } from "../../SideBar/SideBar";
 
 export const UserSetting = () => {
+  const desc =
+    "Hello MY Name is Kanha Tiwari I am a Web Developer and a Computer Science Enthusiast";
   return (
     <div className="setting">
       <form className="settingcontainer">
@@ -20,13 +22,21 @@ export const UserSetting = () => {
             <div className="name">
               <label>
                 Change Your Name :<br />{" "}
-                <input type="text" className="changename" />
+                <input
+                  type="text"
+                  className="changename"
+                  value="Kanha Tiwari"
+                />
               </label>
             </div>
             <div className="email">
               <label>
-                Change Your Email :<br></br>{" "}
-                <input type="text" className="changeemail" />
+                Change Your Email :<br></br>
+                <input
+                  type="text"
+                  className="changeemail"
+                  value="abc@test.com"
+                />
               </label>
             </div>
           </div>
@@ -39,6 +49,7 @@ export const UserSetting = () => {
           <textarea
             placeholder="Change Your discription"
             className="textareainput"
+            value={desc}
           ></textarea>
 
           {/* Password Area */}

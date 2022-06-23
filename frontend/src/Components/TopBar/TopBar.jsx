@@ -98,6 +98,17 @@ function TopBar() {
                 <li className="dropdownlistitem">CONTACT</li>
               </Link>
             </ul>
+            <hr></hr>
+            <Link className="link" to="/settings">
+              <div className="dropdownimg">
+                <img src={Profile} alt="img" className=" userimage" />
+                <div className="dropdownitem">PROFILE</div>
+              </div>
+            </Link>
+            <hr></hr>
+            <Link className="link" to="/login">
+              <div className="dropdownitem">LOGOUT</div>
+            </Link>
           </div>
         </div>
       </div>
