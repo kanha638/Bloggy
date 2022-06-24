@@ -25,8 +25,8 @@ function App() {
           <Route path="/write" element={<UploadPost />}></Route>
           <Route path="/settings" element={<UserSetting />}></Route>
           <Route path="/post/:id" element={<PostView />}></Route>
-          <Route path="/resister" element={<Signup/>}></Route>
-          <Route path="/Login" element={<Signin/>}></Route>
+          <Route path="/register" element={<Signup />}></Route>
+          <Route path="/Login" element={<Signin />}></Route>
         </Routes>
       </BrowserRouter>
     </>

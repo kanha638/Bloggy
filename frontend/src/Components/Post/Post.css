@@ -1,7 +1,10 @@
 .post {
-  width: 420px;
-  margin: 0px 25px 40px 25px;
-  /* border: solid 1px black; */
+  /* width: 420px; */
+  width: auto;
+  min-width: 0px;
+  max-width: 500px;
+  margin: 0px 0px 40px 20px;
+  /* border: solid 2px black; */
   border-radius: 5px;
 }
 .postimage {
