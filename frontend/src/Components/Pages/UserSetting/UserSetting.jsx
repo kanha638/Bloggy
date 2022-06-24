@@ -1,14 +1,26 @@
 import "./UserSetting.css";
 import myimage from "../../../Images/User.jpeg";
 import { SideBar } from "../../SideBar/SideBar";
+import { useState } from "react";
 
 export const UserSetting = () => {
-  const desc =
-    "Hello MY Name is Kanha Tiwari I am a Web Developer and a Computer Science Enthusiast";
+  /* Use State hooks for storing user information*/
+  const [desc, setDesc] = useState(
+    "Hello MY Name is Kanha Tiwari I am a Web Developer and a Computer Science Enthusiast"
+  );
+  const [name, setName] = useState("Kanha Tiwari");
+  const [email, setEmail] = useState("abc@gmail.com");
+
   return (
     <div className="setting">
       <form className="settingcontainer">
-        <h1 style={{ "margin-bottom": "20px" }}>User Setting</h1>
+        <h1
+          style={{
+            "margin-bottom": "20px",
+          }}
+        >
+          User Setting
+        </h1>
         <div className="settingWrapper">
           <img src={myimage} alt="" className="settingimg" />
           <label htmlFor="changeimg">
@@ -25,7 +37,10 @@ export const UserSetting = () => {
                 <input
                   type="text"
                   className="changename"
-                  value="Kanha Tiwari"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
                 />
               </label>
             </div>
@@ -35,7 +50,10 @@ export const UserSetting = () => {
                 <input
                   type="text"
                   className="changeemail"
-                  value="abc@test.com"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
               </label>
             </div>
@@ -50,6 +68,9 @@ export const UserSetting = () => {
             placeholder="Change Your discription"
             className="textareainput"
             value={desc}
+            onChange={(e) => {
+              setDesc(e.target.value);
+            }}
           ></textarea>
 
           {/* Password Area */}

@@ -4,6 +4,7 @@ import Profile from "../../Images/User.jpeg";
 import { Link } from "react-router-dom";
 
 function TopBar() {
+  const user = true;
   return (
     <div className="TopBar">
       <div className="TopBarBig">
@@ -40,7 +41,7 @@ function TopBar() {
 
             <li className="ListItem">
               <Link className="link" to="/login">
-                LOGOUT
+                {user ? "LOGOUT" : <></>}
               </Link>
             </li>
           </ul>
