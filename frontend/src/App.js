@@ -6,6 +6,8 @@ import TopBar from "./Components/TopBar/TopBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Signin } from "./Components/Pages/Signin/Signin";
 import { Signup } from "./Components/Pages/Signup/Signup";
+import { About } from "./Components/Pages/About/About";
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
         {/* <HomePage /> */}
         {/* <UserSettting /> */}
 
+        {/* <About/> */}
         {/* <Signin/> */}
         {/* <Signup/> */}
 
@@ -27,6 +30,7 @@ function App() {
           <Route path="/post/:id" element={<PostView />}></Route>
           <Route path="/resister" element={<Signup/>}></Route>
           <Route path="/Login" element={<Signin/>}></Route>
+          <Route path="/about" element={<About/>}></Route>
         </Routes>
       </BrowserRouter>
     </>
