@@ -5,10 +5,6 @@ const mongoose = require("mongoose");
 
 dotenv.config();
 app.use(express.json());
-console.log(process.env);
-app.get("/", (req, res) => {
-  res.send(process.env);
-});
 
 mongoose
   .connect(process.env.MONGO_URL)
