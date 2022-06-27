@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema(
   {
     name: {
-      type: string,
+      type: String,
       required: true,
     },
     email: {
@@ -16,15 +16,16 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
     profdesc: {
-      type: Text,
+      type: String,
       default: "Hey! there",
     },
     profpic: {
       type: String,
+      default: "hello",
       required: false,
     },
   },
   { timestamps: true }
 );
 
-module.exports = mogoose.model("users", UserSchema);
+module.exports = mongoose.model("users", UserSchema);

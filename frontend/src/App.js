@@ -13,13 +13,13 @@ function App() {
     <>
       <BrowserRouter>
         <TopBar />
-        {/* <UploadPost /> */}
+        {/* <UploadPost />*/ }
         {/* <PostView /> */}
-        {/* <HomePage /> */}
+         {/* <HomePage /> */}
         {/* <UserSettting /> */}
 
         {/* <Signin/> */}
-        {/* <Signup/> */}
+      {/* <Signup/> */}
 
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
