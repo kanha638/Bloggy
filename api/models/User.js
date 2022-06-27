@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema(
     },
     profpic: {
       type: String,
-      default: "hello",
+      default: "https://www.istockphoto.com/photos/default-profile-image",
       required: false,
     },
   },

@@ -2,17 +2,24 @@ import React from "react";
 import "./TopBar.css";
 import Profile from "../../Images/User.jpeg";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function TopBar() {
-  const user = true;
+  let check = localStorage.getItem("user");
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.clear();
+    navigate("/Login");
+  };
+
   return (
     <div className="TopBar">
       <div className="TopBarBig">
         <div className="Left">
-          <i class="leftIcon fa-brands fa-facebook-square"></i>
-          <i class="leftIcon fa-brands fa-instagram-square"></i>
-          <i class="leftIcon fa-brands fa-linkedin"></i>
-          <i class="leftIcon fa-brands fa-twitter-square"></i>
+          <i className="leftIcon fa-brands fa-facebook-square"></i>
+          <i className="leftIcon fa-brands fa-instagram-square"></i>
+          <i className="leftIcon fa-brands fa-linkedin"></i>
+          <i className="leftIcon fa-brands fa-twitter-square"></i>
         </div>
         {/* Center of the NavBar */}
 
@@ -40,8 +47,8 @@ function TopBar() {
             </li>
 
             <li className="ListItem">
-              <Link className="link" to="/login">
-                {user ? "LOGOUT" : <></>}
+              <Link onClick={logout} className="link" to="/Login">
+                {check ? "LOGOUT" : <></>}
               </Link>
             </li>
           </ul>
@@ -68,14 +75,14 @@ function TopBar() {
             placeholder="Search Writtings"
             className="searchInput"
           />
-          <i class="searchIcon fa-solid fa-magnifying-glass"></i>
+          <i className="searchIcon fa-solid fa-magnifying-glass"></i>
         </div>
 
-        <div class="dropdown">
+        <div className="dropdown">
           <span>
-            <i class="leftIcon fa-solid fa-bars"></i>
+            <i className="leftIcon fa-solid fa-bars"></i>
           </span>
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <ul className="dropdownlist">
               <Link className="link" to="/">
                 <li className="dropdownlistitem"> HOME</li>
@@ -102,10 +109,10 @@ function TopBar() {
             </Link>
             <hr></hr>
             <div className="Left1">
-              <i class="leftIcon fa-brands fa-facebook-square"></i>
-              <i class="leftIcon fa-brands fa-instagram-square"></i>
-              <i class="leftIcon fa-brands fa-linkedin"></i>
-              <i class="leftIcon fa-brands fa-twitter-square"></i>
+              <i className="leftIcon fa-brands fa-facebook-square"></i>
+              <i className="leftIcon fa-brands fa-instagram-square"></i>
+              <i className="leftIcon fa-brands fa-linkedin"></i>
+              <i className="leftIcon fa-brands fa-twitter-square"></i>
             </div>
             <hr></hr>
             <Link className="link" to="/login">

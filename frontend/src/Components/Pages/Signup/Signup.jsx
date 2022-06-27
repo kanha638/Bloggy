@@ -1,30 +1,98 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Signimg from "../../../Images/Signimg.png";
 import "./Signup.css";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const Signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cpassword, setcpassword] = useState("");
+  const navigate = useNavigate();
+  useEffect(() => {
+    const check = localStorage.getItem("user");
+    if (check) {
+      navigate("/");
+    }
+  });
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (cpassword === password) {
+      const tmp = { name: name, email: email, password: password };
+
+      console.log("using submit handler");
+      let result = await fetch("http://localhost:5001/api/auth/register", {
+        method: "post",
+        body: JSON.stringify(tmp),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("je");
+      result = await result.json();
+      console.log(result);
+      if (result) {
+        localStorage.setItem("user", JSON.stringify(result));
+        navigate("/");
+      } else {
+        console.log("api failure");
+      }
+    } else {
+      alert("write both password same");
+    }
+  };
+
   return (
     <>
       <div className="flex-container">
         <div className="left">
           <h2 className="center">Sign up</h2>
-          <form action="#">
+          <form onSubmit={submitHandler}>
             <div className="field space">
               <span className="fas fa-user"></span>
-              <input type="text" required placeholder="Name" />
+              <input
+                type="text"
+                required
+                placeholder="Name"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
             </div>
             <div className="field space">
               <span className="fas fa-envelope"></span>
-              <input type="text" required placeholder="Email" />
+              <input
+                type="text"
+                required
+                placeholder="Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
             </div>
             <div className="field space">
               <span className="fas fa-lock"></span>
-              <input type="password" required placeholder="password" />
+              <input
+                type="password"
+                required
+                placeholder="password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
             </div>
             <div className="field space">
               <span className="fas fa-lock"></span>
-              <input type="password" required placeholder="confirm password" />
+              <input
+                type="password"
+                required
+                placeholder="confirm password"
+                onChange={(e) => {
+                  setcpassword(e.target.value);
+                }}
+              />
             </div>
             <div className="space">
               <button type="submit">Register</button>
