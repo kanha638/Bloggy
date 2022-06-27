@@ -8,27 +8,33 @@ import { Signin } from "./Components/Pages/Signin/Signin";
 import { Signup } from "./Components/Pages/Signup/Signup";
 import { About } from "./Components/Pages/About/About";
 
+import PrivateComponent from "./Components/PrivateComponent/PrivateComponent";
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <TopBar />
-        {/* <UploadPost />*/ }
+        {/* <UploadPost />*/}
         {/* <PostView /> */}
-         {/* <HomePage /> */}
+        {/* <HomePage /> */}
         {/* <UserSettting /> */}
 
         {/* <Signin/> */}
-      {/* <Signup/> */}
+        {/* <Signup/> */}
 
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/write" element={<UploadPost />}></Route>
-          <Route path="/settings" element={<UserSetting />}></Route>
-          <Route path="/post/:id" element={<PostView />}></Route>
+          <Route element={<PrivateComponent />}>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/write" element={<UploadPost />}></Route>
+            <Route path="/settings" element={<UserSetting />}></Route>
+            <Route path="/post/:id" element={<PostView />}></Route>
+            <Route path="/About" element={<About />}></Route>
+            <Route path="/Contact" element={<h1>Contact Page</h1>}></Route>
+          </Route>
+
           <Route path="/register" element={<Signup />}></Route>
           <Route path="/Login" element={<Signin />}></Route>
-          <Route path="/About" element={<About/>}></Route>
         </Routes>
       </BrowserRouter>
     </>
