@@ -1,15 +1,16 @@
 import "./UserSetting.css";
-import myimage from "../../../Images/User.jpeg";
+// import myimage from "../../../Images/User.jpeg";
 import { SideBar } from "../../SideBar/SideBar";
 import { useState } from "react";
+// import { useEffect } from "react";
 
 export const UserSetting = () => {
   /* Use State hooks for storing user information*/
-  const [desc, setDesc] = useState(
-    "Hello MY Name is Kanha Tiwari I am a Web Developer and a Computer Science Enthusiast"
-  );
-  const [name, setName] = useState("Kanha Tiwari");
-  const [email, setEmail] = useState("abc@gmail.com");
+  let check = JSON.parse(localStorage.getItem("user"));
+  const [desc, setDesc] = useState(check.profdesc);
+  const [name, setName] = useState(check.name);
+  const [email, setEmail] = useState(check.email);
+  console.log(check);
 
   return (
     <div className="setting">
@@ -22,7 +23,7 @@ export const UserSetting = () => {
           User Setting
         </h1>
         <div className="settingWrapper">
-          <img src={myimage} alt="" className="settingimg" />
+          <img src={check.profpic} alt="" className="settingimg" />
           <label htmlFor="changeimg">
             <i class=" changeimgicon fileinputIcon fa-solid fa-circle-plus"></i>
           </label>
