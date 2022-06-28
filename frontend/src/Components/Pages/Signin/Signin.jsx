@@ -28,13 +28,16 @@ export const Signin = () => {
         "Content-Type": "application/json",
       },
     });
-    result = await result.json();
-    console.log(result);
-    if (result) {
+    console.log(result.status);
+    if (result.status === 200) {
+      result = await result.json();
+      console.log(result);
       localStorage.setItem("user", JSON.stringify(result));
       navigate("/");
+    } else if (result.status === 400) {
+      alert("Wrong Credintials");
     } else {
-      console.log("api failure");
+      alert("Some Error occured");
     }
   };
 

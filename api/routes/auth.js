@@ -35,17 +35,17 @@ router.post("/login", async (req, resp) => {
   try {
     let user = await User.findOne({ email: req.body.email });
     if (!user) {
-      resp.status(400).json("wrong credintials");
+      return resp.status(400).json({ alert: "wrong credintials" });
     }
     const check = await bcrypt.compare(req.body.password, user.password);
     if (!check) {
-      resp.status(400).json("wrong credintials");
+      return resp.status(400).json({ alert: "wrong credintials" });
     }
     user = user.toObject();
     delete user.password;
-    resp.status(200).json(user);
+    return resp.status(200).json(user);
   } catch (error) {
-    resp.status(501).json(error);
+    return resp.status(501).json(error);
   }
 });
 module.exports = router;

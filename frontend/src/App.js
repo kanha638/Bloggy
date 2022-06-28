@@ -29,12 +29,11 @@ function App() {
             <Route path="/write" element={<UploadPost />}></Route>
             <Route path="/settings" element={<UserSetting />}></Route>
             <Route path="/post/:id" element={<PostView />}></Route>
-            <Route path="/About" element={<About />}></Route>
-            <Route path="/Contact" element={<h1>Contact Page</h1>}></Route>
           </Route>
-
+          <Route path="/Contact" element={<h1>Contact Page</h1>}></Route>
+          <Route path="/About" element={<About />}></Route>
           <Route path="/register" element={<Signup />}></Route>
-          <Route path="/Login" element={<Signin />}></Route>
+          <Route path="/login" element={<Signin />}></Route>
         </Routes>
       </BrowserRouter>
     </>

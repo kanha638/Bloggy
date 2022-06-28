@@ -1,15 +1,15 @@
 import React from "react";
 import "./TopBar.css";
-import Profile from "../../Images/User.jpeg";
+// import Profile from "../../Images/User.jpeg";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function TopBar() {
-  let check = localStorage.getItem("user");
+  let check = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
-    navigate("/Login");
+    navigate("/login");
   };
 
   return (
@@ -47,7 +47,7 @@ function TopBar() {
             </li>
 
             <li className="ListItem">
-              <Link onClick={logout} className="link" to="/Login">
+              <Link onClick={logout} className="link" to="/login">
                 {check ? "LOGOUT" : <></>}
               </Link>
             </li>
@@ -64,7 +64,11 @@ function TopBar() {
             <i class="searchIcon fa-solid fa-magnifying-glass"></i>
           </div>
           <Link className="link" to="/settings">
-            <img src={Profile} alt="img" className="userimage" />
+            {check ? (
+              <img src={check.profpic} alt="img" className="userimage" />
+            ) : (
+              <></>
+            )}
           </Link>
         </div>
       </div>
@@ -103,8 +107,14 @@ function TopBar() {
             <hr></hr>
             <Link className="link" to="/settings">
               <div className="dropdownimg">
-                <img src={Profile} alt="img" className=" userimage" />
-                <div className="dropdownitemp">PROFILE</div>
+                {check ? (
+                  <>
+                    <img src={check.profpic} alt="img" className="userimage" />
+                    <div className="dropdownitemp">PROFILE</div>
+                  </>
+                ) : (
+                  <></>
+                )}
               </div>
             </Link>
             <hr></hr>
@@ -115,8 +125,8 @@ function TopBar() {
               <i className="leftIcon fa-brands fa-twitter-square"></i>
             </div>
             <hr></hr>
-            <Link className="link" to="/login">
-              <div className="dropdownitem">LOGOUT</div>
+            <Link className="link" to="/login" onClick={logout}>
+              <div className="dropdownitem">{check ? "LOGOUT" : <></>}</div>
             </Link>
           </div>
         </div>

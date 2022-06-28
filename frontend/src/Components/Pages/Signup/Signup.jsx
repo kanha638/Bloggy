@@ -30,14 +30,14 @@ export const Signup = () => {
           "Content-Type": "application/json",
         },
       });
-      console.log("je");
       result = await result.json();
       console.log(result);
+
       if (result) {
         localStorage.setItem("user", JSON.stringify(result));
         navigate("/");
       } else {
-        console.log("api failure");
+        alert("User Already resister with this email");
       }
     } else {
       alert("write both password same");

@@ -21,7 +21,8 @@ const UserSchema = new mongoose.Schema(
     },
     profpic: {
       type: String,
-      default: "https://www.istockphoto.com/photos/default-profile-image",
+      default:
+        "https://www.pngitem.com/pimgs/m/79-791921_male-profile-round-circle-users-profile-round-icon.png",
       required: false,
     },
   },
