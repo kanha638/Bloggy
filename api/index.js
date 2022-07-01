@@ -6,6 +6,7 @@ const cors = require("cors");
 
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
+const { startSession } = require("./models/Post");
 
 dotenv.config();
 app.use(express.json());

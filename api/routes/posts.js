@@ -17,5 +17,13 @@ router.post("/upload", async (req, res) => {
 });
 
 // Get All posts using get api
+router.get('/allposts', async (req,res)=>{
+  try{
+      let result = await Post.find();
+      res.status(200).json(result);
+  }catch(error){
+      res.send(error)
+  }
+})
 
 module.exports = router;
