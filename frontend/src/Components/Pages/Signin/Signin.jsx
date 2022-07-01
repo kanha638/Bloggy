@@ -21,7 +21,7 @@ export const Signin = () => {
     const tmp = { email: email, password: password };
 
     console.log("using submit handler");
-    let result = await fetch("http://localhost:5001/api/auth/login", {
+    let result = await fetch("http://localhost:5002/api/auth/login", {
       method: "post",
       body: JSON.stringify(tmp),
       headers: {

@@ -20,10 +20,11 @@ const PostSchema = new mongoose.Schema(
     },
     categories: {
       type: Array,
+      default: ["sports"],
       required: false,
     },
   },
   { timestamps: true }
 );
 
-module.exports = mogoose.model("posts", PostSchema);
+module.exports = mongoose.model("posts", PostSchema);

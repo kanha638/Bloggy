@@ -2,93 +2,87 @@
     
 } */
 .contactbar1 {
-    width: 100%;
-    background-color: rgb(128 128 128);
-    height: 40px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    place-items: inline;
-    overflow-x: auto;
-    overflow-y: hidden;
-    transition: ease;
+  width: 100%;
+  background-color: rgb(128 128 128);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  place-items: inline;
+  overflow-x: auto;
+  overflow-y: hidden;
+  transition: ease;
 }
 
 .contactbar2 {
-    width: 100%;
-    background-color: rgb(128 128 128 / 76%);
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
+  background-color: rgb(128 128 128 / 76%);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .cb2 {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 
-
-
 .sendissue {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 8px;
 }
 
 .contactinput {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .adversary {
-    width: 80%;
-    /* background-color: #ccc; */
+  width: 80%;
+  /* background-color: #ccc; */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    flex-direction: column;
-    border: 2px solid black;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    line-height: 20px;
+  flex-direction: column;
+  border: 2px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 20px;
 }
 
 .collectissue {
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-    width: 450px;
-
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  width: 450px;
 }
 
-.collectissue>label {
-    font-size: 18px;
-    /* font-family:; */
-    font-weight: 500;
-
-
+.collectissue > label {
+  font-size: 18px;
+  /* font-family:; */
+  font-weight: 500;
 }
 
 .inputissue {
-    font-size: 14px;
-    width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 3px;
-    border: 1px solid black;
-    margin-top: 7px;
+  font-size: 14px;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 3px;
+  border: 1px solid black;
+  margin-top: 7px;
 }
 
 .detail {
-    height: 50px;
-    display: flex;
+  height: 50px;
+  display: flex;
 }
 
 /* @media only screen and (max-width:900px){
@@ -99,17 +93,15 @@
     }
 } */
 
-@media only screen and (max-width:900px) {
-
-    .collectissue {
-        width: 80%;
-    }
+@media only screen and (max-width: 900px) {
+  .collectissue {
+    width: 80%;
+  }
 }
-
 
 /* contact page information of developer */
 .contactbar3 {
-    /* width: 100%;
+  /* width: 100%;
     background-color: rgb(158 158 158);
     height: auto;
     display: flex;
@@ -119,76 +111,73 @@
     flex-wrap: nowrap;
     padding: 20px;
     column-gap: 20px; */
-    width: 100%;
-    background-color: rgb(158 158 158);
-    height: auto;
-    display: flex;
-    align-items: stretch;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    padding: 20px;
-    column-gap: 20px;
-    justify-content: space-evenly;
-    align-content: center;
-
+  width: 100%;
+  background-color: rgb(158 158 158);
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 20px;
+  column-gap: 20px;
+  justify-content: space-evenly;
+  align-content: center;
 }
 
 .devloper1 {
-    background-color: rgb(10, 2, 2);
-    padding: 20px;
-    color: white;
-    margin-left: 100px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
+  background-color: rgb(10, 2, 2);
+  padding: 20px;
+  color: white;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
 }
 
 .devloper2 {
-    width: fit-content;
+  width: fit-content;
+  background-color: rgb(10, 2, 2);
+  padding: 20px;
+  color: white;
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 900px) {
+  .contactbar3 {
+    width: 100%;
+    background-color: rgb(216, 218, 226);
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .devloper1 {
     background-color: rgb(10, 2, 2);
-    padding: 20px;
+    padding: 40px;
     color: white;
-    margin-right: 100px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
+  }
+
+  .devloper2 {
+    width: fit-content;
+    background-color: rgb(10, 2, 2);
+    padding: 40px;
+    color: white;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+  }
 }
-
-@media only screen and (max-width:900px) {
-
-    .contactbar3 {
-        width: 100%;
-        background-color: rgb(216, 218, 226);
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
-
-    .devloper1 {
-        background-color: rgb(10, 2, 2);
-        padding: 40px;
-        color: white;
-        margin: 10px;
-        display: flex;
-        flex-direction: column;
-        border-radius: 10px;
-    }
-
-    .devloper2 {
-        width: fit-content;
-        background-color: rgb(10, 2, 2);
-        padding: 40px;
-        color: white;
-        margin: 10px;
-        display: flex;
-        flex-direction: column;
-        border-radius: 10px;
-    }
-}
-
 
 /* @media only screen and (max-width:900px) {
 

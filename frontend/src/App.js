@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Signin } from "./Components/Pages/Signin/Signin";
 import { Signup } from "./Components/Pages/Signup/Signup";
 import { About } from "./Components/Pages/About/About";
-import {ContactPage} from "./Components/Pages/ContactPage/ContactPage"
+import { ContactPage } from "./Components/Pages/ContactPage/ContactPage";
 
 import PrivateComponent from "./Components/PrivateComponent/PrivateComponent";
 
@@ -31,11 +31,10 @@ function App() {
             <Route path="/settings" element={<UserSetting />}></Route>
             <Route path="/post/:id" element={<PostView />}></Route>
           </Route>
-          <Route path="/Contact" element={<ContactPage/>}></Route>
+          <Route path="/Contact" element={<ContactPage />}></Route>
           <Route path="/About" element={<About />}></Route>
           <Route path="/register" element={<Signup />}></Route>
           <Route path="/login" element={<Signin />}></Route>
-        
         </Routes>
       </BrowserRouter>
     </>
