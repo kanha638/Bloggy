@@ -26,4 +26,24 @@ router.get("/allposts", async (req, res) => {
   }
 });
 
+// get information by post id
+router.get("/post/:id", async (req, res) => {
+  try {
+    
+    const postId = req.params.id;
+    let post = await Post.findOne({ _id: postId });
+    if(!post){
+      res.status(401).json({"message" : "post is not found"})
+    }
+    else{
+      post = post.toObject();
+      res.status(200).json(post);
+    }
+      
+    
+  } catch (error) {
+    res.send(error);
+  }
+});
+
 module.exports = router;
