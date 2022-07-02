@@ -15,25 +15,33 @@ export const UploadPost = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
-    const tmp = { title: title, image: image, Desc: Desc, authorid: authorid };
-    console.log(tmp);
-
-    let result = await fetch("http://localhost:5002/api/posts/upload", {
-      method: "post",
-      body: JSON.stringify(tmp),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (result.status === 200) {
-      alert("your post uploaded successfully");
-      result = await result.json();
-      console.log(result);
-      navigate("/");
+    if (title.Emtpy || Desc.Empty) {
+      alert("Please Fill all feilds");
     } else {
-      alert("some error occured");
+      const tmp = {
+        title: title,
+        image: image,
+        Desc: Desc,
+        authorid: authorid,
+      };
+      console.log(tmp);
+
+      let result = await fetch("http://localhost:5002/api/posts/upload", {
+        method: "post",
+        body: JSON.stringify(tmp),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (result.status === 200) {
+        alert("your post uploaded successfully");
+        result = await result.json();
+        console.log(result);
+        navigate("/");
+      } else {
+        alert("some error occured");
+      }
     }
   };
 
@@ -54,6 +62,7 @@ export const UploadPost = () => {
               type="text"
               className="titleinput"
               autoFocus="true"
+              required
               placeholder="Write Your Title ( Max 15 words )"
               onChange={(e) => {
                 setTitle(e.target.value);
@@ -66,6 +75,7 @@ export const UploadPost = () => {
             type="text"
             placeholder="Write Something ...."
             className="textinput"
+            required
             onChange={(e) => {
               setDesc(e.target.value);
             }}
