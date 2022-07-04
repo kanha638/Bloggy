@@ -7,7 +7,8 @@
   height: 60px;
   position: sticky;
   top: 0;
-  background-color: white;
+  /* background-color: white; */
+  
   display: flex;
   display: none;
   /* flex-wrap: wrap; */

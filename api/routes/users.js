@@ -4,6 +4,7 @@ const { rawListeners } = require("npmlog");
 
 const User = require("../models/User");
 
+
 router.get("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
@@ -21,5 +22,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
 
 module.exports = router;
