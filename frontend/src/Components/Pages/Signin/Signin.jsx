@@ -4,6 +4,9 @@ import "./Signin.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Swal from 'sweetalert2'
+
+
 
 export const Signin = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +15,10 @@ export const Signin = () => {
   useEffect(() => {
     const check = localStorage.getItem("user");
     if (check) {
+      
+
       navigate("/");
+      
     }
   });
   const submitHandler = async (e) => {
@@ -33,7 +39,18 @@ export const Signin = () => {
       result = await result.json();
       console.log(result);
       localStorage.setItem("user", JSON.stringify(result));
+      Swal.fire(
+        {
+          title: ' ',
+          html: 'Logged In successfully',
+          timer: 1500,
+          icon:'success'
+
+        }
+
+      )
       navigate("/");
+     
     } else if (result.status === 400) {
       alert("Wrong Credintials");
     } else {
@@ -71,7 +88,7 @@ export const Signin = () => {
             </div>
 
             <div className="space">
-              <button type="submit">Login</button>
+              <button type="submit" >Login</button>
             </div>
             <div className="signup space">
               haven't account? <Link to="/register">Create </Link>

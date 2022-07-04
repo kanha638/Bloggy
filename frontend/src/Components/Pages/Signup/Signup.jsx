@@ -3,6 +3,7 @@ import Signimg from "../../../Images/Signimg.png";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const Signup = () => {
   const [name, setName] = useState("");
@@ -35,6 +36,16 @@ export const Signup = () => {
 
       if (result) {
         localStorage.setItem("user", JSON.stringify(result));
+        Swal.fire(
+          {
+            title: 'Congratulations!',
+            html: 'Signup Successfully',
+            timer: 1500,
+            icon:'success'
+
+          }
+
+        )
         navigate("/");
       } else {
         alert("User Already resister with this email");

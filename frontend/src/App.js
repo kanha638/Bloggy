@@ -11,6 +11,7 @@ import { ContactPage } from "./Components/Pages/ContactPage/ContactPage";
 
 import PrivateComponent from "./Components/PrivateComponent/PrivateComponent";
 
+
 function App() {
   return (
     <>

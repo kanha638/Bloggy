@@ -22,6 +22,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/user", userRoute);
 
+
 app.listen(5002, () => {
   console.log("application is working ");
 });
