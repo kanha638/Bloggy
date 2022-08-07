@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema(
     profpic: {
       type: String,
       default:
-        "https://www.pngitem.com/pimgs/m/79-791921_male-profile-round-circle-users-profile-round-icon.png",
+        "https://as2.ftcdn.net/v2/jpg/03/32/59/65/1000_F_332596535_lAdLhf6KzbW6PWXBWeIFTovTii1drkbT.jpg",
       required: false,
     },
   },

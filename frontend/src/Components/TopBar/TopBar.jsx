@@ -41,13 +41,13 @@ function TopBar() {
               </Link>
             </li>
             <li className="ListItem">
-              <Link className="link" to="/contact">
+              <Link className="link" to="#home">
                 CONTACT
               </Link>
             </li>
 
             <li className="ListItem">
-              <Link onClick={logout} className="link" to="/login">
+              <Link onClick={logout} className="link" to="home">
                 {check ? "LOGOUT" : <></>}
               </Link>
             </li>

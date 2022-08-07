@@ -5,7 +5,10 @@
   margin-right: 15px;
   margin-bottom: 20px;
   padding-bottom: 30px;
-  background-color: grey;
+  /* background-color: grey; */
+  background-color: rgba(42, 7, 243, 0.1);
+
+  border: solid 1px black;
   border-radius: 10px;
   display: flex;
   flex-direction: column;

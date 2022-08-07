@@ -27,7 +27,9 @@ export const UserSetting = () => {
           <label htmlFor="changeimg">
             <i class=" changeimgicon fileinputIcon fa-solid fa-circle-plus"></i>
           </label>
-          <input type="file" id="changeimg" className="changeimg" />
+          <div className="changeimg">
+            <input type="file" id="changeimg" />
+          </div>
         </div>
         <div className="inputcontainer">
           {/* Basic Info  */}
