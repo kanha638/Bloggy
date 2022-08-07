@@ -8,12 +8,13 @@ import { Signin } from "./Components/Pages/Signin/Signin";
 import { Signup } from "./Components/Pages/Signup/Signup";
 import { About } from "./Components/Pages/About/About";
 import { ContactPage } from "./Components/Pages/ContactPage/ContactPage";
+import "./app.css";
 
 import PrivateComponent from "./Components/PrivateComponent/PrivateComponent";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <BrowserRouter>
         <TopBar />
         {/* <UploadPost />*/}
@@ -37,7 +38,7 @@ function App() {
           <Route path="/login" element={<Signin />}></Route>
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

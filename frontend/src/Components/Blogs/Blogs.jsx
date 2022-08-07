@@ -21,7 +21,8 @@ export const Blogs = () => {
         data.map((index) => {
           return (
             <Post
-              key={index.id}
+              key={index._id}
+              postId={index._id}
               title={index.title}
               img={index.image}
               description={index.Desc}

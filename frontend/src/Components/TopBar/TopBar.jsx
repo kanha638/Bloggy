@@ -47,7 +47,7 @@ function TopBar() {
             </li>
 
             <li className="ListItem">
-              <Link onClick={logout} className="link" to="home">
+              <Link onClick={() => logout} className="link" to="home">
                 {check ? "LOGOUT" : <></>}
               </Link>
             </li>

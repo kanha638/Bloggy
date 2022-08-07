@@ -1,6 +1,7 @@
 .viewcontainer {
   display: flex;
   flex-direction: column;
+  margin-top: 100px;
   /* flex-wrap: wrap; */
 }
 @media only screen and (min-width: 900px) {

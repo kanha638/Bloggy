@@ -3,6 +3,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   font-family: "Josefin Sans", sans-serif;
+  margin-top: 80px;
   /* color: orange; */
 }
 .settingcontainer {

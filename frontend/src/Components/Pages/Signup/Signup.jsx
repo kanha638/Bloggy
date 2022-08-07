@@ -16,7 +16,7 @@ export const Signup = () => {
     if (check) {
       navigate("/");
     }
-  });
+  }, []);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -34,18 +34,14 @@ export const Signup = () => {
       result = await result.json();
       console.log(result);
 
-      if (result) {
-        localStorage.setItem("user", JSON.stringify(result));
-        Swal.fire(
-          {
-            title: 'Congratulations!',
-            html: 'Signup Successfully',
-            timer: 1500,
-            icon:'success'
-
-          }
-
-        )
+      if (result.success) {
+        localStorage.setItem("user", JSON.stringify(result.data));
+        Swal.fire({
+          title: "Congratulations!",
+          html: "Signup Successfully",
+          timer: 1500,
+          icon: "success",
+        });
         navigate("/");
       } else {
         alert("User Already resister with this email");

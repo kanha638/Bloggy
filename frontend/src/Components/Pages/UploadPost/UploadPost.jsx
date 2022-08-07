@@ -46,7 +46,7 @@ export const UploadPost = () => {
   };
 
   return (
-    <>
+    <div className="uploadpostcontainer">
       <h1 className="pagetitle">Upload Here</h1>
       <div className="UploadPost">
         <div className="blogimgcontainer">
@@ -86,6 +86,6 @@ export const UploadPost = () => {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
