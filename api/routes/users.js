@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
 const { rawListeners } = require("npmlog");
+const userController = require("../controllers/user.controller");
 
 const User = require("../models/User");
-
 
 router.get("/:id", async (req, res) => {
   try {
@@ -23,5 +23,8 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// For update
+
+router.patch("/:id", userController.userUpdate);
 
 module.exports = router;

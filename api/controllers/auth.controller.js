@@ -36,9 +36,9 @@ const userRegister = async (req, res) => {
               .status(501)
               .json({ success: false, message: "Internal Server Error1" });
           }
-          data.toObject();
-          delete data.password;
-          return res.status(200).json({ success: true, data: data });
+          let data1 = data.toObject();
+          delete data1.password;
+          return res.status(200).json({ success: true, data: data1 });
         });
       });
     }
@@ -54,9 +54,9 @@ const userlogin = async (req, res) => {
     if (user) {
       const check = await bcrypt.compare(password, user.password);
       if (check) {
-        user.toObject();
-        delete user.password;
-        return res.status(200).json({ success: true, data: user });
+        let user1 = user.toObject();
+        delete user1.password;
+        return res.status(200).json({ success: true, data: user1 });
       } else {
         return res
           .status(400)
