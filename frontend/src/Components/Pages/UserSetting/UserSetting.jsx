@@ -51,12 +51,12 @@ export const UserSetting = () => {
               <label>
                 Change Your Email :<br></br>
                 <input
-                  type="text"
+                  type="email"
                   className="changeemail"
                   value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
+                  // onChange={(e) => {
+                  //   setEmail(e.target.value);
+                  // }}
                 />
               </label>
             </div>
