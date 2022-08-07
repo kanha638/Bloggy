@@ -33,7 +33,7 @@ export const Signin = () => {
     if (result.status === 200) {
       result = await result.json();
       console.log(result);
-      localStorage.setItem("user", JSON.stringify(result));
+      localStorage.setItem("user", JSON.stringify(result.data));
       Swal.fire({
         title: " ",
         html: "Logged In successfully",

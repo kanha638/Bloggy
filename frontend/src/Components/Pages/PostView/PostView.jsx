@@ -8,7 +8,7 @@ export const PostView = () => {
     <div className="viewcontainer">
       <PostDetail />
 
-      <hr className="line" />
+      {/* <hr className="line" /> */}
       <SideBar />
     </div>
   );

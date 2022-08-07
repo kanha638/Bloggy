@@ -1,14 +1,30 @@
 import "./PostDetail.css";
+import { useState, useEffect } from "react";
 import image from "../../Images/fitness.webp";
+import { useParams } from "react-router-dom";
 
 export const PostDetail = () => {
+  let params = useParams();
+  const [data, setData] = useState({});
+
+  const getData = async () => {
+    const postId = params.id;
+    let result = await fetch(`http://localhost:5002/api/posts/${postId}`);
+    result = await result.json();
+    console.log(result);
+    setData(result);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div className="PostDetail">
       <div className="postWrapper">
-        <img src={image} alt="PostImage" className="postimg" />
+        <img src={data.image} alt="PostImage" className="postimg" />
 
         <h1 className="Posttitle">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit
+          {data.title}
           <div className="editPost">
             <i class="EditPostIcon fa-solid fa-pen-to-square"></i>
             <i class="EditPostIcon fa-solid fa-trash"></i>
@@ -26,7 +42,7 @@ export const PostDetail = () => {
         </div>
         <hr></hr>
         <p className="postcontent">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
+          {/* Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
           ullam accusamus numquam aliquam, exercitationem debitis laudantium
           modi architecto similique nostrum molestiae id molestias quaerat
           optio! Quam aut voluptatibus nam tempora. Lorem ipsum dolor sit, amet
@@ -62,11 +78,13 @@ export const PostDetail = () => {
           sit, amet consectetur adipisicing elit. Perspiciatis ullam accusamus
           numquam aliquam, exercitationem debitis laudantium modi architecto
           similique nostrum molestiae id molestias quaerat optio! Quam aut
-          voluptatibus nam tempora.
+          voluptatibus nam tempora. */}
+          {data.Desc}
         </p>
         <br></br>
         <br></br>
       </div>
+      {/* <h1>{params.id}</h1> */}
     </div>
   );
 };
