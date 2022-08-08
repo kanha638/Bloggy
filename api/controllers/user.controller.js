@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
+// For updating the user Information
 const userUpdate = async (req, res) => {
   try {
     const { userId, name, profdesc, changedPassword, currentPassword } =
@@ -89,5 +90,26 @@ const userUpdate = async (req, res) => {
       .json({ success: false, message: "Internal Sever Error" });
   }
 };
+// For Getting the user information using its id
 
-module.exports = { userUpdate };
+const getUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    let user = await User.findOne({ _id: userId });
+    if (user) {
+      user = user.toObject();
+      delete user.password;
+      delete user.createdAt;
+      delete user.updatedAt;
+      return res.status(200).json(user);
+    } else {
+      return res.status(404).json({ message: "User Not Found" });
+    }
+  } catch (error) {
+    return res
+      .status(501)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+};
+
+module.exports = { userUpdate, getUser };
