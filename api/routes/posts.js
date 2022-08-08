@@ -47,7 +47,7 @@ router.delete("/:id", async (req, res) => {
     const result = await Post.findById(id);
     if (result) {
       const requserid = req.body.userid;
-      if (requseid === result.authorid) {
+      if (requserid === result.authorid) {
         await Post.deleteOne({ _id: id });
       } else {
       }
