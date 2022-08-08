@@ -1,7 +1,22 @@
-import React from "react";
+import React,{ useRef } from "react";
 import "./ContactPage.css";
+import emailjs from '@emailjs/browser';
 
 export const ContactPage = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(form.current);
+    console.log(process.env);
+
+    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_SECRET_KEY)
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
   return (
     <>
       <div className="contactpage">
@@ -17,13 +32,14 @@ export const ContactPage = () => {
             <div>Contact The Help Team</div>
           </div>
           <div className="contactinput">
-            <form className="adversary">
+            <form className="adversary" ref={form} onSubmit={sendEmail}>
               <div className="collectissue">
                 <label>What type of help ?</label>
                 <input
                   className="inputissue"
                   type="text"
                   placeholder="issue topic"
+                  name="topic"
                 ></input>
               </div>
               <div className="collectissue">
@@ -32,6 +48,7 @@ export const ContactPage = () => {
                   className="inputissue"
                   type="text"
                   placeholder="e.g.Aadi Adwaani"
+                  name="from_name"
                 ></input>
               </div>
               <div className="collectissue">
@@ -40,15 +57,17 @@ export const ContactPage = () => {
                   className="inputissue"
                   type="text"
                   placeholder="e.g. jay@gmail.com"
+                  name="email_id"
                 ></input>
               </div>
               <div className="collectissue">
                 <label>Describe Here</label>
-                <input
+                <textarea
                   className="inputissue detail"
                   type="text"
                   placeholder="Write your issue"
-                ></input>
+                  name="issuesDesc"
+                ></textarea>
               </div>
               <div className="contacbuttom">
                 <button className="sendissue">Send</button>

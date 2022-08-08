@@ -41,7 +41,7 @@ function TopBar() {
               </Link>
             </li>
             <li className="ListItem">
-              <Link className="link" to="#home">
+              <Link className="link" to="/contact">
                 CONTACT
               </Link>
             </li>
