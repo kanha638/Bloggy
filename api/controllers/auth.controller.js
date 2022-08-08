@@ -11,10 +11,12 @@ const userRegister = async (req, res) => {
 
     if (name && email && password) {
       User.findOne({ email: email }).exec((err, result) => {
+        console.log(result);
         if (err) {
-          console.log(err._message);
+          // console.log(err._message);
+          console.log(err);
           return res
-            .status(err.staus)
+            .status(502)
             .json({ success: false, message: "DataBase Error" });
         }
         if (result) {
@@ -24,7 +26,6 @@ const userRegister = async (req, res) => {
         }
 
         console.log(hashedPassword);
-
         let user = new User({
           name: name,
           email: email,
