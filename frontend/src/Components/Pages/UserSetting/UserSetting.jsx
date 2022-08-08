@@ -1,20 +1,97 @@
 import "./UserSetting.css";
 // import myimage from "../../../Images/User.jpeg";
 import { SideBar } from "../../SideBar/SideBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 // import { useEffect } from "react";
 
 export const UserSetting = () => {
   /* Use State hooks for storing user information*/
   let check = JSON.parse(localStorage.getItem("user"));
+
   const [desc, setDesc] = useState(check.profdesc);
   const [name, setName] = useState(check.name);
   const [email, setEmail] = useState(check.email);
-  console.log(check);
+  const [newPassword, setNewpassword] = useState(null);
+  const [currentPassword, setCurrentPassword] = useState(null);
+  const [flag, setFlag] = useState(true);
 
+  // console.log(check);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    // console.log(name.length, email, newPassword, currentPassword);
+    const id = check._id;
+    if (currentPassword) {
+      console.log(name);
+      if (
+        name.length < 30 &&
+        name.length > 4 &&
+        desc.length > 5 &&
+        desc.length < 100
+      ) {
+        if (newPassword) {
+          let result = await fetch(`http://localhost:5002/api/user/${id}`, {
+            method: "put",
+
+            body: JSON.stringify({
+              userId: id,
+              changedPassword: newPassword,
+              profdesc: desc,
+              name: name,
+              currentPassword: currentPassword,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          result = await result.json();
+          console.log(result);
+          if (result.success) {
+            localStorage.removeItem("user");
+            localStorage.setItem("user", result.data);
+            if (flag) setFlag(false);
+            else setFlag(true);
+          } else {
+            alert("Profile changed UnsuccessFull");
+          }
+        } else {
+          let result = await fetch(`http://localhost:5002/api/user/${id}`, {
+            method: "put",
+            body: JSON.stringify({
+              userId: id,
+              profdesc: desc,
+              name: name,
+              currentPassword: currentPassword,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          result = await result.json();
+          console.log(result);
+          if (result.success) {
+            localStorage.removeItem("user");
+            localStorage.setItem("user", result.data);
+            if (flag) setFlag(false);
+            else setFlag(true);
+          } else {
+            alert("Profile changed UnsuccessFull");
+          }
+        }
+      } else {
+        alert("Enter name of size above 4 and description below 100");
+      }
+    } else {
+      alert("Enter Your current Password");
+    }
+  };
+  // useEffect(() => {
+  //   console.log("it is rerendered");
+  // }, [flag]);
   return (
     <div className="setting">
-      <form className="settingcontainer">
+      <form className="settingcontainer" onSubmit={submitHandler}>
         <h1
           style={{
             "margin-bottom": "20px",
@@ -54,9 +131,9 @@ export const UserSetting = () => {
                   type="email"
                   className="changeemail"
                   value={email}
-                  // onChange={(e) => {
-                  //   setEmail(e.target.value);
-                  // }}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
               </label>
             </div>
@@ -80,12 +157,27 @@ export const UserSetting = () => {
           <div className="passwordarea">
             <label>
               Change Your Password :<br />
-              <input type="password" className="changepassword" />
+              <input
+                type="password"
+                className="changepassword"
+                value={newPassword}
+                onChange={(e) => {
+                  setNewpassword(e.target.value);
+                }}
+              />
             </label>
 
             <label>
               Enter Current Password :<br />
-              <input type="password" className="currentpassword" />
+              <input
+                type="password"
+                className="currentpassword"
+                value={currentPassword}
+                required={true}
+                onChange={(e) => {
+                  setCurrentPassword(e.target.value);
+                }}
+              />
             </label>
           </div>
         </div>

@@ -25,6 +25,6 @@ router.get("/:id", async (req, res) => {
 
 // For update
 
-router.patch("/:id", userController.userUpdate);
+router.put("/:id", userController.userUpdate);
 
 module.exports = router;

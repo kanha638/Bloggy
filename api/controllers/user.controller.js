@@ -23,7 +23,8 @@ const userUpdate = async (req, res) => {
                     password: hashedPassword,
                     profdesc: profdesc,
                   },
-                }
+                },
+                { new: true }
               );
               if (result) {
                 let result1 = await User.findOne({ _id: userId });
@@ -39,14 +40,15 @@ const userUpdate = async (req, res) => {
                   .json({ success: false, message: "Internal Server Error" });
               }
             } else {
-              const result = User.findByIdAndUpdate(
+              const result = await User.findByIdAndUpdate(
                 { _id: userId },
                 {
                   $set: {
                     name: name,
                     profdesc: profdesc,
                   },
-                }
+                },
+                { new: true }
               );
               if (result) {
                 let result1 = await User.findOne({ _id: userId });
