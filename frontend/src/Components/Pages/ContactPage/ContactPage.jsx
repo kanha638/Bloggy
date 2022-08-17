@@ -1,6 +1,6 @@
-import React,{ useRef } from "react";
+import React, { useRef } from "react";
 import "./ContactPage.css";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
 export const ContactPage = () => {
   const form = useRef();
@@ -10,12 +10,21 @@ export const ContactPage = () => {
     console.log(form.current);
     console.log(process.env);
 
-    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_SECRET_KEY)
-      .then((result) => {
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_SECRET_KEY
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
+        }
+      );
   };
   return (
     <>

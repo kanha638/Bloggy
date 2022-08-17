@@ -27,6 +27,7 @@ export const Signup = () => {
       let result = await fetch("http://localhost:5002/api/auth/register", {
         method: "post",
         body: JSON.stringify(tmp),
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -36,6 +37,7 @@ export const Signup = () => {
 
       if (result.success) {
         localStorage.setItem("user", JSON.stringify(result.data));
+        localStorage.setItem("accessToken", JSON.stringify(result.accessToken));
         Swal.fire({
           title: "Congratulations!",
           html: "Signup Successfully",
