@@ -7,26 +7,31 @@ const cors = require("cors");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const userRoute = require("./routes/users");
+const CookieParser = require("cookie-parser");
 const { startSession } = require("./models/Post");
+const cookieParser = require("cookie-parser");
 
 // Handling uncaught Exception
-process.on("uncaughtException",(err) =>{
+process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
   console.log(`Shutting down the server for Handling uncaught Exception`);
-})
+});
 
 dotenv.config();
+app.use(cookieParser());
 app.use(express.json());
+
 app.use(
   cors({
-    origin: "*",
+    origin: "http://127.0.0.1:3000",
+    credentials: true,
   })
 );
 
 mongoose
-  .connect(process.env.MONGO_URL,{
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
   .then(console.log("DataBase is connected"))
   .catch((err) => console.log(err));
@@ -40,10 +45,10 @@ app.listen(5002, () => {
 });
 
 // // Unhandled promise rejection
-process.on("unhandledRejection", (err) =>{
+process.on("unhandledRejection", (err) => {
   console.log(`Shutting down server for ${err.message}`);
   console.log(`Shutting down the server due to Unhandled promise rejection`);
-  server.close(() =>{
-      process.exit(1);
+  server.close(() => {
+    process.exit(1);
   });
 });

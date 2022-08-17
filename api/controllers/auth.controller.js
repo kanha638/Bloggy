@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const User = require("../models/User");
 
 const userRegister = async (req, res) => {
   try {
+    // res.cookie("hello", "hii", {
+    //   httpOnly: true,
+    // });
     const { name, email, password } = req.body;
     const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -25,7 +29,7 @@ const userRegister = async (req, res) => {
             .json({ success: false, message: "User is Already Present" });
         }
 
-        console.log(hashedPassword);
+        // console.log(hashedPassword);
         let user = new User({
           name: name,
           email: email,
@@ -39,7 +43,13 @@ const userRegister = async (req, res) => {
           }
           let data1 = data.toObject();
           delete data1.password;
-          return res.status(200).json({ success: true, data: data1 });
+          const accessToken = jwt.sign({ data1 }, process.env.JWT_SIGN_KEY, {
+            expiresIn: "2d",
+          });
+          // console.log(accessToken);
+          return res
+            .status(200)
+            .json({ success: true, data: data1, accessToken: accessToken });
         });
       });
     }
@@ -57,7 +67,13 @@ const userlogin = async (req, res) => {
       if (check) {
         let user1 = user.toObject();
         delete user1.password;
-        return res.status(200).json({ success: true, data: user1 });
+        const accessToken = jwt.sign({ user1 }, process.env.JWT_SIGN_KEY, {
+          expiresIn: "2d",
+        });
+        // console.log(accessToken);
+        return res
+          .status(200)
+          .json({ success: true, data: user1, accessToken: accessToken });
       } else {
         return res
           .status(400)

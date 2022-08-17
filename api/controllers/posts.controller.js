@@ -20,6 +20,8 @@ const getAllPost = async (req, res) => {
 };
 const getOnePost = async (req, res) => {
   try {
+    const token = req.cookies.accessToken;
+    console.log(token);
     const postId = req.params.id;
     let post = await Post.findOne({ _id: postId });
     if (!post) {

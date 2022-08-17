@@ -23,6 +23,15 @@ const PostSchema = new mongoose.Schema(
       default: ["sports"],
       required: false,
     },
+    likes: {
+      type: Array,
+      default: [],
+      required: false,
+    },
+    likeCount: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

@@ -34,6 +34,7 @@ export const Signin = () => {
       result = await result.json();
       console.log(result);
       localStorage.setItem("user", JSON.stringify(result.data));
+      localStorage.setItem("accessToken", JSON.stringify(result.accessToken));
       Swal.fire({
         title: " ",
         html: "Logged In successfully",
