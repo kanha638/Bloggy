@@ -25,6 +25,10 @@ const UserSchema = new mongoose.Schema(
         "https://as2.ftcdn.net/v2/jpg/03/32/59/65/1000_F_332596535_lAdLhf6KzbW6PWXBWeIFTovTii1drkbT.jpg",
       required: false,
     },
+    role: {
+      type: String,
+      default: "User",
+    },
   },
   { timestamps: true }
 );

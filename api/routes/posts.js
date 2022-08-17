@@ -13,5 +13,4 @@ router.get("/allposts", postController.getAllPost);
 // get information by post id
 router.get("/:id", postController.getOnePost);
 router.delete("/:id", postController.deletePost);
-
 module.exports = router;
