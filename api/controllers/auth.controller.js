@@ -3,12 +3,14 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/User");
+const cookie = require("cookie");
 
 const userRegister = async (req, res) => {
   try {
     // res.cookie("hello", "hii", {
     //   httpOnly: true,
     // });
+    console.log(req.body);
     const { name, email, password } = req.body;
     const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -47,9 +49,18 @@ const userRegister = async (req, res) => {
             expiresIn: "2d",
           });
           // console.log(accessToken);
-          return res
-            .status(200)
-            .json({ success: true, data: data1, accessToken: accessToken });
+          res.set(
+            "Set-Cookie",
+            cookie.serialize("token", accessToken, {
+              httpOnly: true,
+              secure: process.env.NODE_ENV === "production",
+              sameSite: "strict",
+              maxAge: 360000,
+              path: "/", //cookie valid for whole site
+            })
+          );
+          // console.log(accessToken);
+          return res.status(200).json({ success: true, data: data1 });
         });
       });
     }
@@ -71,9 +82,17 @@ const userlogin = async (req, res) => {
           expiresIn: "2d",
         });
         // console.log(accessToken);
-        return res
-          .status(200)
-          .json({ success: true, data: user1, accessToken: accessToken });
+        res.set(
+          "Set-Cookie",
+          cookie.serialize("token", accessToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: "strict",
+            maxAge: 360000,
+            path: "/", //cookie valid for whole site
+          })
+        );
+        return res.status(200).json({ success: true, data: user1 });
       } else {
         return res
           .status(400)
@@ -91,4 +110,26 @@ const userlogin = async (req, res) => {
   }
 };
 
-module.exports = { userRegister, userlogin };
+const userLogout = async (req, res) => {
+  try {
+    // res.set(
+    //   "Set-Cookie",
+    //   cookie.serialize("token", "", {
+    //     httpOnly: true,
+    //     secure: process.env.NODE_ENV === "production",
+    //     sameSite: "strict",
+    //     expires: new Date(0),
+    //     path: "/",
+    //   })
+    // );
+    res.clearCookie("token");
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+};
+
+module.exports = { userRegister, userlogin, userLogout };

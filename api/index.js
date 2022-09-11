@@ -3,7 +3,6 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const userRoute = require("./routes/users");
@@ -11,7 +10,7 @@ const CookieParser = require("cookie-parser");
 const { startSession } = require("./models/Post");
 const cookieParser = require("cookie-parser");
 
-// Handling uncaught Exception
+//Handling uncaught Exception
 process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
   console.log(`Shutting down the server for Handling uncaught Exception`);
@@ -19,14 +18,14 @@ process.on("uncaughtException", (err) => {
 
 dotenv.config();
 app.use(cookieParser());
-app.use(express.json());
-
 app.use(
   cors({
-    origin: "http://127.0.0.1:3000",
+    origin: process.env.ORIGIN,
     credentials: true,
+    exposedHeaders: ["set-cookie"],
   })
 );
+app.use(express.json());
 
 mongoose
   .connect(process.env.MONGO_URL, {
