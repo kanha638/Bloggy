@@ -2,16 +2,18 @@ import "./UserSetting.css";
 // import myimage from "../../../Images/User.jpeg";
 import { SideBar } from "../../SideBar/SideBar";
 import { useState, useEffect } from "react";
+import { selectUser } from "../../../features/userSlice";
+import { useSelector } from "react-redux";
 
 // import { useEffect } from "react";
 
 export const UserSetting = () => {
   /* Use State hooks for storing user information*/
-  let check = JSON.parse(localStorage.getItem("user"));
+  const user = useSelector(selectUser);
 
-  const [desc, setDesc] = useState(check.profdesc);
-  const [name, setName] = useState(check.name);
-  const [email, setEmail] = useState(check.email);
+  const [desc, setDesc] = useState(user.profdesc);
+  const [name, setName] = useState(user.name);
+  const [email, setEmail] = useState(user.email);
   const [newPassword, setNewpassword] = useState(null);
   const [currentPassword, setCurrentPassword] = useState(null);
   const [flag, setFlag] = useState(true);
@@ -21,7 +23,7 @@ export const UserSetting = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     // console.log(name.length, email, newPassword, currentPassword);
-    const id = check._id;
+    const id = user._id;
     if (currentPassword) {
       console.log(name);
       if (
@@ -100,7 +102,7 @@ export const UserSetting = () => {
           User Setting
         </h1>
         <div className="settingWrapper">
-          <img src={check.profpic} alt="" className="settingimg" />
+          <img src={user.profpic} alt="" className="settingimg" />
           <label htmlFor="changeimg">
             <i class=" changeimgicon fileinputIcon fa-solid fa-circle-plus"></i>
           </label>

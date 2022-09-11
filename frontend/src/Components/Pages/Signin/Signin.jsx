@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import { loginUser } from "../../../api/auth";
+import { useDispatch } from "react-redux";
+import { UserState } from "../../../features/userSlice";
+import { useSelector } from "react-redux";
 
 export const Signin = () => {
   const [email, setEmail] = useState("");
@@ -16,36 +20,27 @@ export const Signin = () => {
       navigate("/");
     }
   });
+  const dispatch = useDispatch();
+  const userState = useSelector(UserState);
   const submitHandler = async (e) => {
     e.preventDefault();
-
     const tmp = { email: email, password: password };
-
-    console.log("using submit handler");
-    let result = await fetch("http://localhost:5002/api/auth/login", {
-      method: "post",
-      body: JSON.stringify(tmp),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    console.log(result.status);
-    if (result.status === 200) {
-      result = await result.json();
-      console.log(result);
-      localStorage.setItem("user", JSON.stringify(result.data));
-      localStorage.setItem("accessToken", JSON.stringify(result.accessToken));
+    await loginUser(tmp, dispatch);
+    if (userState.isErrors === false) {
+      navigate("/");
       Swal.fire({
         title: " ",
         html: "Logged In successfully",
         timer: 1500,
         icon: "success",
       });
-      navigate("/");
-    } else if (result.status === 400) {
-      alert("Wrong Credintials");
     } else {
-      alert("Some Error occured");
+      Swal.fire({
+        title: " ",
+        html: "Wrong Credintials / Some Error occured",
+        timer: 1500,
+        icon: "error",
+      });
     }
   };
 
