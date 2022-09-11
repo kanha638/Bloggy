@@ -4,6 +4,10 @@ import "./Signup.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { registerUser } from "../../../api/auth";
+import { useDispatch } from "react-redux";
+import { UserState } from "../../../features/userSlice";
+import { useSelector } from "react-redux";
 
 export const Signup = () => {
   const [name, setName] = useState("");
@@ -17,37 +21,57 @@ export const Signup = () => {
       navigate("/");
     }
   }, []);
-
+  const dispatch = useDispatch();
+  const userState = useSelector(UserState);
   const submitHandler = async (e) => {
     e.preventDefault();
     if (cpassword === password) {
       const tmp = { name: name, email: email, password: password };
 
       console.log("using submit handler");
-      let result = await fetch("http://localhost:5002/api/auth/register", {
-        method: "post",
-        body: JSON.stringify(tmp),
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      result = await result.json();
-      console.log(result);
 
-      if (result.success) {
-        localStorage.setItem("user", JSON.stringify(result.data));
-        localStorage.setItem("accessToken", JSON.stringify(result.accessToken));
+      await registerUser(tmp, dispatch);
+      console.log(userState);
+      if (userState.isErrors === false) {
+        navigate("/");
         Swal.fire({
           title: "Congratulations!",
           html: "Signup Successfully",
           timer: 1500,
           icon: "success",
         });
-        navigate("/");
       } else {
-        alert("User Already resister with this email");
+        Swal.fire({
+          title: "Sorry Something Went Wrong",
+          html: "Signup Failed",
+          timer: 1500,
+          icon: "error",
+        });
       }
+
+      // let result = await fetch("http://localhost:5002/api/auth/register", {
+      //   method: "post",
+      //   body: JSON.stringify(tmp),
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      // });
+      // result = await result.json();
+      // console.log(result);
+
+      // if (result.success) {
+      //   localStorage.setItem("user", JSON.stringify(result.data));
+      //   localStorage.setItem("accessToken", JSON.stringify(result.accessToken));
+      //   Swal.fire({
+      //     title: "Congratulations!",
+      //     html: "Signup Successfully",
+      //     timer: 1500,
+      //     icon: "success",
+      //   });
+      //   navigate("/");
+      // } else {
+      //   alert("User Already resistered with this email");
+      // }
     } else {
       alert("write both password same");
     }

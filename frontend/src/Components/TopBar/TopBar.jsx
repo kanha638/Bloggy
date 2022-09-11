@@ -1,15 +1,32 @@
 import React from "react";
 import "./TopBar.css";
 // import Profile from "../../Images/User.jpeg";
+import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../../api/auth";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { UserState } from "../../features/userSlice";
 
 function TopBar() {
+  const dispatch = useDispatch();
+  const userState = useSelector(UserState);
   let check = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
-  const logout = () => {
-    localStorage.clear();
-    navigate("/login");
+  const LogOut = async () => {
+    console.log("its clicked");
+    await logout(dispatch);
+    if (userState.isErrors === false) {
+      navigate("/login");
+    } else {
+      Swal.fire({
+        title: " ",
+        html: "Unable to logout",
+        timer: 1500,
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -46,10 +63,8 @@ function TopBar() {
               </Link>
             </li>
 
-            <li className="ListItem">
-              <Link onClick={logout} className="link" to="/login">
-                {check ? "LOGOUT" : <></>}
-              </Link>
+            <li className="ListItem" onClick={LogOut}>
+              {check ? "LOGOUT" : <></>}
             </li>
           </ul>
         </div>
@@ -125,9 +140,10 @@ function TopBar() {
               <i className="leftIcon fa-brands fa-twitter-square"></i>
             </div>
             <hr></hr>
-            <Link className="link" to="/login" onClick={logout}>
-              <div className="dropdownitem">{check ? "LOGOUT" : <></>}</div>
-            </Link>
+
+            <div className="dropdownitem" onClick={LogOut}>
+              {check ? "LOGOUT" : <></>}
+            </div>
           </div>
         </div>
       </div>
