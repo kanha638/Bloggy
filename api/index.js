@@ -9,15 +9,18 @@ const userRoute = require("./routes/users");
 const CookieParser = require("cookie-parser");
 const { startSession } = require("./models/Post");
 const cookieParser = require("cookie-parser");
-
+const morgan = require("morgan");
 //Handling uncaught Exception
 process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
   console.log(`Shutting down the server for Handling uncaught Exception`);
 });
 
+const port = process.env.PORT || 5002;
 dotenv.config();
+
 app.use(cookieParser());
+
 app.use(
   cors({
     origin: process.env.ORIGIN,
@@ -26,6 +29,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(morgan("dev"));
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -39,8 +43,8 @@ app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/user", userRoute);
 
-app.listen(5002, () => {
-  console.log("application is working ");
+app.listen(port, () => {
+  console.log(`application is working on port no : ${port}`);
 });
 
 // // Unhandled promise rejection

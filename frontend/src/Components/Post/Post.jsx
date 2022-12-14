@@ -3,18 +3,6 @@ import "./Post.css";
 // import postimage from "../../Images/fitness1.jpeg";
 import { Link } from "react-router-dom";
 export const Post = (props) => {
-  const [data, setData] = useState({});
-
-  const getData = async () => {
-    let result = await fetch("http://localhost:5002/api/posts/allposts");
-    result = await result.json();
-    console.log(result);
-    setData(result);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
   return (
     <div className="post">
       <img src={props.img} alt="postimage" className="postimage" />

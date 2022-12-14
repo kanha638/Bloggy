@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { start, success, errors, logoutSucess } from "../features/userSlice";
 
-const API = axios.create({ baseURL: "http://localhost:5002" });
+const API = axios.create({ baseURL: process.env.REACT_APP_SERVER_URL });
 
 export const registerUser = async (user, dispatch) => {
   dispatch(start());

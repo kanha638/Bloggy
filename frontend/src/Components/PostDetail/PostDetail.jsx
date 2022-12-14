@@ -9,7 +9,9 @@ export const PostDetail = () => {
 
   const getData = async () => {
     const postId = params.id;
-    let result = await fetch(`http://localhost:5002/api/posts/${postId}`);
+    let result = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/api/posts/${postId}`
+    );
     result = await result.json();
     console.log(result);
     setData(result);

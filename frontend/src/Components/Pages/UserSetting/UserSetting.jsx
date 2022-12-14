@@ -33,48 +33,52 @@ export const UserSetting = () => {
         desc.length < 100
       ) {
         if (newPassword) {
-          let result = await fetch(`http://localhost:5002/api/user/${id}`, {
-            method: "put",
+          let result = await fetch(
+            `${process.env.REACT_APP_SERVER_URL}/api/user/${id}`,
+            {
+              method: "put",
 
-            body: JSON.stringify({
-              userId: id,
-              changedPassword: newPassword,
-              profdesc: desc,
-              name: name,
-              currentPassword: currentPassword,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
+              body: JSON.stringify({
+                userId: id,
+                changedPassword: newPassword,
+                profdesc: desc,
+                name: name,
+                currentPassword: currentPassword,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
           result = await result.json();
           console.log(result);
           if (result.success) {
-            localStorage.removeItem("user");
-            localStorage.setItem("user", result.data);
+            localStorage.setItem("user", JSON.stringify(result.data));
             if (flag) setFlag(false);
             else setFlag(true);
           } else {
             alert("Profile changed UnsuccessFull");
           }
         } else {
-          let result = await fetch(`http://localhost:5002/api/user/${id}`, {
-            method: "put",
-            body: JSON.stringify({
-              userId: id,
-              profdesc: desc,
-              name: name,
-              currentPassword: currentPassword,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
+          let result = await fetch(
+            `${process.env.REACT_APP_SERVER_URL}/api/user/${id}`,
+            {
+              method: "put",
+              body: JSON.stringify({
+                userId: id,
+                profdesc: desc,
+                name: name,
+                currentPassword: currentPassword,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
           result = await result.json();
           console.log(result);
           if (result.success) {
-            localStorage.removeItem("user");
-            localStorage.setItem("user", result.data);
+            localStorage.setItem("user", JSON.stringify(result.data));
             if (flag) setFlag(false);
             else setFlag(true);
           } else {

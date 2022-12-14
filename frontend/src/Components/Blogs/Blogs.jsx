@@ -5,7 +5,9 @@ import { useState, useEffect } from "react";
 export const Blogs = () => {
   const [data, setData] = useState([]);
   const getData = async () => {
-    let result = await fetch("http://localhost:5002/api/posts/allposts");
+    let result = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/api/posts/allposts`
+    );
     result = await result.json();
     console.log(result);
     setData(result);

@@ -7,7 +7,7 @@ export const ContactPage = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log(form.current);
+
     console.log(process.env);
 
     emailjs
@@ -25,6 +25,7 @@ export const ContactPage = () => {
           console.log(error.text);
         }
       );
+    e.target.reset();
   };
   return (
     <>
@@ -41,7 +42,12 @@ export const ContactPage = () => {
             <div>Contact The Help Team</div>
           </div>
           <div className="contactinput">
-            <form className="adversary" ref={form} onSubmit={sendEmail}>
+            <form
+              className="adversary"
+              id="contact_for_id"
+              ref={form}
+              onSubmit={sendEmail}
+            >
               <div className="collectissue">
                 <label>What type of help ?</label>
                 <input

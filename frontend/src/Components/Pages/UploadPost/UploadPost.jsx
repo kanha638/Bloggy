@@ -26,13 +26,16 @@ export const UploadPost = () => {
       };
       console.log(tmp);
 
-      let result = await fetch("http://localhost:5002/api/posts/upload", {
-        method: "post",
-        body: JSON.stringify(tmp),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      let result = await fetch(
+        `${process.env.REACT_APP_SERVER_URL}/api/posts/upload`,
+        {
+          method: "post",
+          body: JSON.stringify(tmp),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (result.status === 200) {
         alert("your post uploaded successfully");

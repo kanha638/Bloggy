@@ -48,30 +48,6 @@ export const Signup = () => {
           icon: "error",
         });
       }
-
-      // let result = await fetch("http://localhost:5002/api/auth/register", {
-      //   method: "post",
-      //   body: JSON.stringify(tmp),
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // });
-      // result = await result.json();
-      // console.log(result);
-
-      // if (result.success) {
-      //   localStorage.setItem("user", JSON.stringify(result.data));
-      //   localStorage.setItem("accessToken", JSON.stringify(result.accessToken));
-      //   Swal.fire({
-      //     title: "Congratulations!",
-      //     html: "Signup Successfully",
-      //     timer: 1500,
-      //     icon: "success",
-      //   });
-      //   navigate("/");
-      // } else {
-      //   alert("User Already resistered with this email");
-      // }
     } else {
       alert("write both password same");
     }
