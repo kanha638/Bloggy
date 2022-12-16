@@ -54,7 +54,7 @@ export default function SignUp() {
     } else {
       registerUser(
         {
-          name: `${data.get("fistName")} ${data.get("lastName")}`,
+          name: `${data.get("firstName")} ${data.get("lastName")}`,
           email: data.get("email"),
           password: data.get("password"),
         },
@@ -154,6 +154,7 @@ export default function SignUp() {
                   type="password"
                   id="cpassword"
                   error={cPasswordError}
+                  helperText={cPasswordError && "Both Passwords Should match"}
                   autoComplete="new-password"
                 />
               </Grid>
