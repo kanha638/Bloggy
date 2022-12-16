@@ -4,13 +4,14 @@ import { UploadPost } from "./Components/Pages/UploadPost/UploadPost";
 import { UserSetting } from "./Components/Pages/UserSetting/UserSetting";
 import TopBar from "./Components/TopBar/TopBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Signin } from "./Components/Pages/Signin/Signin";
-import { Signup } from "./Components/Pages/Signup/Signup";
+// import { Signn } from "./Components/Pages/Signin/Signin";
+import SignUp from "./Components/Pages/Signup/SignUp";
 import { About } from "./Components/Pages/About/About";
 import { ContactPage } from "./Components/Pages/ContactPage/ContactPage";
 import "./app.css";
 
 import PrivateComponent from "./Components/PrivateComponent/PrivateComponent";
+import SignIn from "./Components/Pages/Signin/SignIn";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         {/* <Signup/> */}
 
         <Routes>
+          <Route path="/register" element={<SignUp />}></Route>
+          <Route path="/login" element={<SignIn />}></Route>
           <Route element={<PrivateComponent />}>
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/write" element={<UploadPost />}></Route>
@@ -34,8 +37,6 @@ function App() {
           </Route>
           <Route path="/Contact" element={<ContactPage />}></Route>
           <Route path="/About" element={<About />}></Route>
-          <Route path="/register" element={<Signup />}></Route>
-          <Route path="/login" element={<Signin />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

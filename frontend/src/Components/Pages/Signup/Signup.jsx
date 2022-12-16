@@ -1,122 +1,188 @@
-import { useState, useEffect } from "react";
-import Signimg from "../../../Images/Signimg.png";
-import "./Signup.css";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import * as React from "react";
+import { useState } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { registerUser } from "../../../api/auth";
 import { useDispatch } from "react-redux";
-import { UserState } from "../../../features/userSlice";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-export const Signup = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [cpassword, setcpassword] = useState("");
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Bloggy
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
+
+const theme = createTheme();
+
+export default function SignUp() {
   const navigate = useNavigate();
-  useEffect(() => {
-    const check = localStorage.getItem("user");
-    if (check) {
-      navigate("/");
-    }
-  }, []);
   const dispatch = useDispatch();
-  const userState = useSelector(UserState);
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    if (cpassword === password) {
-      const tmp = { name: name, email: email, password: password };
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-      console.log("using submit handler");
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+    });
 
-      await registerUser(tmp, dispatch);
-      console.log(userState);
-      if (userState.isErrors === false) {
-        navigate("/");
-        Swal.fire({
-          title: "Congratulations!",
-          html: "Signup Successfully",
-          timer: 1500,
-          icon: "success",
-        });
-      } else {
-        Swal.fire({
-          title: "Sorry Something Went Wrong",
-          html: "Signup Failed",
-          timer: 1500,
-          icon: "error",
-        });
-      }
+    if (data.get("password") !== data.get("cpassword")) {
+      setcPasswordError(true);
     } else {
-      alert("write both password same");
+      registerUser(
+        {
+          name: `${data.get("fistName")} ${data.get("lastName")}`,
+          email: data.get("email"),
+          password: data.get("password"),
+        },
+        dispatch,
+        navigate
+      );
     }
   };
+  const styles = (theme) => ({
+    notchedOutline: {
+      borderWidth: "1px",
+      borderColor: "yellow !important",
+    },
+  });
+
+  const [cPasswordError, setcPasswordError] = useState(false);
 
   return (
-    <>
-      <div className="flex-container">
-        <div className="left">
-          <h2 className="center">Sign up</h2>
-          <form onSubmit={submitHandler}>
-            <div className="field space">
-              <span className="fas fa-user"></span>
-              <input
-                type="text"
-                required
-                placeholder="Name"
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
-            </div>
-            <div className="field space">
-              <span className="fas fa-envelope"></span>
-              <input
-                type="text"
-                required
-                placeholder="Email"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-            </div>
-            <div className="field space">
-              <span className="fas fa-lock"></span>
-              <input
-                type="password"
-                required
-                placeholder="password"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-            </div>
-            <div className="field space">
-              <span className="fas fa-lock"></span>
-              <input
-                type="password"
-                required
-                placeholder="confirm password"
-                onChange={(e) => {
-                  setcpassword(e.target.value);
-                }}
-              />
-            </div>
-            <div className="space">
-              <button type="submit">Register</button>
-            </div>
-            {/* <!-- who don't have accout they sign up --> */}
-            <div className="signup space">
-              Do you have account?<Link to="/Login">Sign in</Link>
-            </div>
-          </form>
-        </div>
-
-        <div className="right">
-          <img src={Signimg} className="image" alt="" />
-        </div>
-      </div>
-    </>
+    <ThemeProvider theme={theme}>
+      <Container
+        component="main"
+        maxWidth="xs"
+        sx={{
+          marginTop: 25,
+        }}
+      >
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "rgb(58, 57, 57)" }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="given-name"
+                  name="firstName"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="cpassword"
+                  label="Confirm Password"
+                  type="password"
+                  id="cpassword"
+                  error={cPasswordError}
+                  autoComplete="new-password"
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2, backgroundColor: "black" }}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link
+                  href="/login"
+                  variant="body2"
+                  sx={{
+                    color: "rgb(58, 57, 57)",
+                  }}
+                >
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <Copyright sx={{ mt: 5 }} />
+      </Container>
+    </ThemeProvider>
   );
-};
+}

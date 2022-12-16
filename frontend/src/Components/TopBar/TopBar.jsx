@@ -70,14 +70,14 @@ function TopBar() {
         </div>
         {/* Right of the Navbar */}
         <div className="Right">
-          <div className="search">
+          {/* <div className="search">
             <input
               type="text"
               placeholder="Search Writtings"
               className="searchInput"
             />
             <i class="searchIcon fa-solid fa-magnifying-glass"></i>
-          </div>
+          </div> */}
           <Link className="link" to="/settings">
             {check ? (
               <img src={check.profpic} alt="img" className="userimage" />
@@ -88,14 +88,14 @@ function TopBar() {
         </div>
       </div>
       <div className="TopBarSmall">
-        <div className="search">
+        {/* <div className="search">
           <input
             type="text"
             placeholder="Search Writtings"
             className="searchInput"
           />
           <i className="searchIcon fa-solid fa-magnifying-glass"></i>
-        </div>
+        </div> */}
 
         <div className="dropdown">
           <span>
