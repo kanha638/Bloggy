@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.0",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "dotenv": "^16.0.3",

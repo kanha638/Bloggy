@@ -12,9 +12,9 @@
   height: 90px;
   position: sticky;
   top: 0;
-  background-color: rgba(108, 23, 208);
-  color: rgba(255, 255, 255);
-  background: linear-gradient(rgb(22, 1, 36), rgba(108, 23, 208));
+  background-color: rgb(188, 182, 195);
+  color: rgb(58, 57, 57);
+  background: white;
 
   display: flex;
   display: none;
@@ -32,8 +32,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(108, 23, 208);
-  color: rgba(255, 255, 255);
+  color: rgb(58, 57, 57);
+  background: white;
   flex-wrap: wrap;
   font-family: "Josefin Sans", sans-serif;
 }
@@ -53,7 +53,8 @@
   flex: 6;
   display: flex;
   justify-content: flex-end;
-  padding: 20px;
+  /* max-width: 200px; */
+  padding: 1rem;
 }
 @media only screen and (min-width: 900px) {
   .TopBarBig {
@@ -67,14 +68,15 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  background-color: rgba(108, 23, 208);
-  color: rgba(255, 255, 255);
+  /* background-color: #f9f9f9; */
+  color: rgb(58, 57, 57);
+  background: white;
   margin: 0px;
-  width: 100%;
+  /* width: 20%; */
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   /* padding: 12px 16px; */
-  padding: 20px;
+  padding: 1rem;
+  border: solid 2px black;
   z-index: 1;
   /* border: solid 2px black; */
   border-radius: 10px;
@@ -83,9 +85,8 @@
 .dropdown:hover .dropdown-content {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
   margin-top: 40px;
-
   justify-content: space-between;
 }
 .dropdownlist {
