@@ -68,3 +68,41 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+`
+
+ <form className="uploadform" onSubmit={submitHandler}>
+          <div className="portion1">
+            <label htmlFor="fileinput">
+              <i class=" fileinputIcon fa-solid fa-circle-plus"></i>
+            </label>
+            <input type="file" className="fileinput" id="fileinput" />
+            <input
+              type="text"
+              className="titleinput"
+              autoFocus="true"
+              required
+              placeholder="Write Your Title ( Max 15 words )"
+              onChange={(e) => {
+                setTitle(e.target.value);
+              }}
+            />
+          </div>
+
+          {/* <div className="portion2"> */}
+          <textarea
+            type="text"
+            placeholder="Write Something ...."
+            className="textinput"
+            required
+            onChange={(e) => {
+              setDesc(e.target.value);
+            }}
+          ></textarea>
+          {/* </div> */}
+          <button type="submit" className="SubmitForm">
+            Submit
+          </button>
+        </form>
+
+`

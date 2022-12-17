@@ -3,8 +3,19 @@ const Post = require("../models/Post");
 
 const uploadPost = async (req, res) => {
   try {
-    let result = new Post(req.body);
+    const { title, desc, author } = req.body;
+    const image_urn = req.file?.filename;
+    // console.log(req.body);
+    // const result = "hello";
+    console.log(image_urn);
+    let result = new Post({
+      authorid: author,
+      title: title,
+      Desc: desc,
+      image_urn: image_urn,
+    });
     result = await result.save();
+    // console.log(result);
     res.status(200).json(result);
   } catch (error) {
     res.send(error);

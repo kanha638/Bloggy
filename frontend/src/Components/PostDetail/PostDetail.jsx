@@ -23,7 +23,11 @@ export const PostDetail = () => {
   return (
     <div className="PostDetail">
       <div className="postWrapper">
-        <img src={data.image} alt="PostImage" className="postimg" />
+        <img
+          src={`${process.env.REACT_APP_SERVER_URL}/api/files/blog/${data.image_urn}`}
+          alt="PostImage"
+          className="postimg"
+        />
 
         <h1 className="Posttitle">
           {data.title}

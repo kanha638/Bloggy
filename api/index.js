@@ -6,6 +6,8 @@ const cors = require("cors");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const userRoute = require("./routes/users");
+const filesRouter = require("./routes/files");
+
 const CookieParser = require("cookie-parser");
 const { startSession } = require("./models/Post");
 const cookieParser = require("cookie-parser");
@@ -42,6 +44,7 @@ mongoose
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/user", userRoute);
+app.use("/api/files", filesRouter);
 
 app.listen(port, () => {
   console.log(`application is working on port no : ${port}`);

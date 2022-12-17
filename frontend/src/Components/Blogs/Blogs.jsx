@@ -26,7 +26,7 @@ export const Blogs = () => {
               key={index._id}
               postId={index._id}
               title={index.title}
-              img={index.image}
+              img={index.image_urn}
               description={index.Desc}
               createdAt={index.createdAt}
             />
