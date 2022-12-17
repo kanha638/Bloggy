@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 export const Post = (props) => {
   return (
     <div className="post">
-      <img src={props.img} alt="postimage" className="postimage" />
+      <img
+        src={`${process.env.REACT_APP_SERVER_URL}/api/files/blog/${props?.img}`}
+        alt="postimage"
+        className="postimage"
+      />
       <div className="postInfo">
         <div className="categories">
           <span className="category">Fitness</span>

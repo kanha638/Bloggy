@@ -16,17 +16,7 @@ function TopBar() {
   const navigate = useNavigate();
   const LogOut = async () => {
     console.log("its clicked");
-    await logout(dispatch);
-    if (userState.isErrors === false) {
-      navigate("/login");
-    } else {
-      Swal.fire({
-        title: " ",
-        html: "Unable to logout",
-        timer: 1500,
-        icon: "error",
-      });
-    }
+    await logout(dispatch, navigate);
   };
 
   return (
@@ -141,7 +131,7 @@ function TopBar() {
             </div>
             <hr></hr>
 
-            <div className="dropdownitem" onClick={LogOut}>
+            <div className="dropdownitem" onClick={() => LogOut}>
               {check ? "LOGOUT" : <></>}
             </div>
           </div>

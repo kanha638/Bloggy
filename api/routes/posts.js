@@ -5,9 +5,10 @@ const postController = require("../controllers/posts.controller");
 // models import
 
 const Post = require("../models/Post");
+const { upload } = require("../middleware/multerUploader");
 // Upload
 
-router.post("/upload", postController.uploadPost);
+router.post("/upload", upload.single("file"), postController.uploadPost);
 // Get All posts using get api
 router.get("/allposts", postController.getAllPost);
 // get information by post id

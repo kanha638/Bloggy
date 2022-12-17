@@ -19,6 +19,7 @@ export const userSlice = createSlice({
     },
     logoutSucess: (state) => {
       state.isPending = false;
+      state.isErrors = false;
       state.userInfo = null;
       localStorage.clear();
     },

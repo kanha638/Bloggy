@@ -33,13 +33,14 @@ export const loginUser = async (user, dispatch, navigate) => {
   }
 };
 
-export const logout = async (dispatch) => {
+export const logout = async (dispatch, navigate) => {
   dispatch(start());
   try {
     const result = await API.get("/api/auth/logout", {
       withCredentials: true,
     });
     dispatch(logoutSucess());
+    navigate("/login");
   } catch (error) {
     console.log(error);
     dispatch(errors());
