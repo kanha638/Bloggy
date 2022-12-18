@@ -10,7 +10,7 @@ const userRegister = async (req, res) => {
     // res.cookie("hello", "hii", {
     //   httpOnly: true,
     // });
-    console.log(req.body);
+    // console.log(req.body);
     const { name, email, password } = req.body;
     const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(password, salt);
