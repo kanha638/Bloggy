@@ -46,6 +46,10 @@ app.use("/api/posts", postRoute);
 app.use("/api/user", userRoute);
 app.use("/api/files", filesRouter);
 
+app.get("/", (req, res) => {
+  res.json("hello world");
+});
+
 app.listen(port, () => {
   console.log(`application is working on port no : ${port}`);
 });
