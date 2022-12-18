@@ -18,8 +18,8 @@ process.on("uncaughtException", (err) => {
   console.log(`Shutting down the server for Handling uncaught Exception`);
 });
 
-const port = process.env.PORT || 5002;
 dotenv.config();
+const port = process.env.PORT || 5002;
 
 app.use(cookieParser());
 
