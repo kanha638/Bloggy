@@ -3,7 +3,7 @@
 echo "We are deploying our app"
 pm2 stop "npm start"
 
-DIRECTORY = "/Users/tiwarikanha26/Desktop/Blog-Application/api"
+DIRECTORY = "/home/web/Blog-Application/api"
 
 cd DIRECTORY
 echo "Installing the Dependencies"
