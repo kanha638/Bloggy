@@ -26,7 +26,7 @@ jobs:
 
     steps:
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: appleboy/ssh-action@v0.1.6
+    - uses: appleboy/ssh-action@v0.1.6
       with:
         node-version: ${{ matrix.node-version }}
         host: ${{ secrets.BACKEND_HOST }}
@@ -34,11 +34,4 @@ jobs:
         key:  ${{ secrets.BACKEND_KEY }}
         port:  ${{ secrets.BACKEND_PORT }}
         script: |
-              curl -o-   https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    | bash
-              . ~/.nvm/nvm.sh
-               nvm instal 16
-               npm install -g pm2
-               cd ~/home/web/Blog-Application/api
-               git pull origin main
-               npm install
-               pm2 restart "npm start"
+              echo "hello world"
