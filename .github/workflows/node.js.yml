@@ -26,7 +26,7 @@ jobs:
 
     steps:
     - name: Use Node.js ${{ matrix.node-version }}
-    - uses: appleboy/ssh-action@v0.1.6
+      uses: appleboy/ssh-action@v0.1.6
       with:
         node-version: ${{ matrix.node-version }}
         host: ${{ secrets.BACKEND_HOST }}
