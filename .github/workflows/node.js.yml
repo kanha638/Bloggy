@@ -11,13 +11,13 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
-    env:
-      PORT: ${{ secrets.PORT_RUN}}
-      MONGO_URL: ${{ secrets.MONGO_URL}}
-      JWT_SIGN_KEY: ${{ secrets.JWT_SIGN_KEY }}
-      NODE_ENV: ${{ secrets.NODE_ENV }}
-      ORIGIN: ${{ secrets.ORIGIN }}
-      FILE_PATH: ${{ secrets.FILE_PATH }}
+#     env:
+#       PORT: ${{ secrets.PORT_RUN}}
+#       MONGO_URL: ${{ secrets.MONGO_URL}}
+#       JWT_SIGN_KEY: ${{ secrets.JWT_SIGN_KEY }}
+#       NODE_ENV: ${{ secrets.NODE_ENV }}
+#       ORIGIN: ${{ secrets.ORIGIN }}
+#       FILE_PATH: ${{ secrets.FILE_PATH }}
 
     strategy:
       matrix:
