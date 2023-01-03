@@ -20,7 +20,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
          node-version: ${{ matrix.node-version }}
-         npm-cache : api/package-lock.json
+         cache: 'npm'
+         cache-dependency-path: api/package-lock.json
       - name: npm install and build
         run: |
           npm install
