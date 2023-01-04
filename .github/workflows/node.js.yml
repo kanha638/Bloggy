@@ -43,7 +43,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        # See supported Node.js release schedule at https://node js.org/en/about/rleases/
+        # See supported Node.js release schedule at https://node js.og/en/about/rleases/
 
     steps:
     - name: Use Node.js ${{ matrix.node-version }}
