@@ -8,26 +8,26 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
+#   build:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [14.x]
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use node
-        uses: actions/setup-node@v1
-        with:
-         node-version: ${{ matrix.node-version }}
-         cache: 'npm'
-         cache-dependency-path: api/package-lock.json
-      - name: npm install and build
-        run: |
-          npm install
-          npm run build
-        env: 
-          CI: true   
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Use node
+#         uses: actions/setup-node@v1
+#         with:
+#          node-version: ${{ matrix.node-version }}
+#          cache: 'npm'
+#          cache-dependency-path: api/package-lock.json
+#       - name: npm install and build
+#         run: |
+#           npm install
+#           npm run build
+#         env: 
+#           CI: true   
 
   deploy:
 
