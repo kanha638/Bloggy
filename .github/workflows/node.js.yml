@@ -43,13 +43,13 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/rleases/
+        # See supported Node.js release schedule at https://node js.org/en/about/rleases/
 
     steps:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: appleboy/ssh-action@v0.1.6
       with:
-        node-version: ${{ matrix.node-version }}
+#         node-version: ${{ matrix.node-version }}
         host: ${{ secrets.BACKEND_HOST }}
         username:  ${{ secrets.BACKEND_USER}}
         key:  ${{ secrets.BACKEND_KEY }}
